@@ -18,6 +18,6 @@ In this repository you can find all material for the course
 ### Section 2 - Custom Directives in Angular
 
 * Practice 01 - Getting Started with Custom Directives
-  * [Github](https://github.com/kobi-hari-udemy/theming-angular-material/tree/main/practice/01.%20fun-with-css-custom-props)
-  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/theming-angular-material/tree/main/practice/01.%20fun-with-css-custom-props?title=Custom%20CSS%20Properties&file=README.md)
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/01.%20fun-with-directives)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/01.%20fun-with-directives?title=Highlight%20Directive&file=README.md)
 
