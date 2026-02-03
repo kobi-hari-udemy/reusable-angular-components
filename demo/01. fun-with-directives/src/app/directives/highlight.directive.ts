@@ -1,20 +1,17 @@
-import { Directive, ElementRef, inject, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, inject, Renderer2, signal } from "@angular/core";
 
 @Directive({
-    selector: '[highlight]'
+    selector: '[highlight]', 
+    host: {
+        '[style.background-color]': 'bg()'
+    }
 })
 export class HighlightDirective {
-    readonly hostElement = inject(ElementRef);
-    readonly renderer = inject(Renderer2);
-
+    readonly bg = signal('lime');
     constructor() {
-        console.log('Highlight Directive was created');
-        // this.hostElement.nativeElement.style.backgroundColor = 'yellow';
-
-        this.renderer.setStyle(this.hostElement.nativeElement, 
-            'background-color', 
-            'pink'        
-        );
+        setTimeout(() => {
+            this.bg.set('pink')
+        }, 5000);
     }
 
 }
