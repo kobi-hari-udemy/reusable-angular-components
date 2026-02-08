@@ -8,5 +8,5 @@ import { HighlightDirective } from './directives/highlight.directive';
   styleUrl: './app.scss'
 })
 export class App {
-  readonly myColor = signal('teal');
+  readonly myColor = signal('magenta');
 }

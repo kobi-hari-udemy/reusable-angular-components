@@ -16,15 +16,15 @@
 
   <ul>
     <li>How to create custom directives from scratch</li>
-    <li highlight>How to manipulate the host element in different ways</li>
+    <li highlight color="yellow">How to manipulate the host element in different ways</li>
     <li>How to add inputs and outputs to directives</li>
-    <li highlight>How to work with selectors to target specific elements</li>
+    <li highlight color="cyan">How to work with selectors to target specific elements</li>
     <li>How to respond to events within directives</li>
   </ul>
 
   <h2>Creating Custom Directives</h2>
 
-  <p highlight>
+  <p highlight [color]="myColor()">
     While Angular provides many built-in directives, you can also create your own custom directives
     to encapsulate reusable behavior. Custom directives are decorated with the <code>@Directive</code> decorator
     and can access the host element through dependency injection.
