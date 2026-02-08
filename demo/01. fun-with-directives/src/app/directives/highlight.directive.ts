@@ -1,28 +1,17 @@
-import { computed, Directive, ElementRef, inject, Renderer2, signal } from "@angular/core";
+import { computed, Directive, ElementRef, inject, Renderer2, signal } from '@angular/core';
 
 @Directive({
-    selector: '[highlight]', 
-    host: {
-        '[style.background-color]': 'bg()',         
-        '[attr.title]': 'bg()', 
-        '[attr.contenteditable]': 'true', 
-        '[class.highlighted]': 'isHighlighted()', 
-        '[class.was-highligted]': '!isHighlighted()', 
-        '[class]': 'bgClass()'
-    }
+  selector: '[highlight]',
+  host: {
+    '[style.background-color]': 'bg()',
+    '[style.cursor]': '"pointer"',
+    '(click)': 'changeColor()'
+  },
 })
 export class HighlightDirective {
-    readonly bg = signal('lime');
-    readonly isHighlighted = signal(true);
+  readonly bg = signal('lime');
 
-    readonly bgClass = computed(() => 
-        `${this.bg()}-highlight`);
-
-    constructor() {
-        setTimeout(() => {
-            this.bg.set('pink');
-            this.isHighlighted.set(false);
-        }, 5000);
-    }
-
+  changeColor() {
+    this.bg.set('pink');
+  }
 }
