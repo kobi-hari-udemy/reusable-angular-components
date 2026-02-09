@@ -19,9 +19,9 @@ import {
   },
 })
 export class HighlightDirective {
-  readonly color = input('lime');
+  readonly color = input('', {alias: 'highlight'});
 
-  readonly bg = linkedSignal(this.color);
+  readonly bg = linkedSignal(() => this.color() || 'lime');
 
   changeColor() {
     this.bg.set('pink');
