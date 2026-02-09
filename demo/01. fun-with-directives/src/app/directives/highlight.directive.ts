@@ -1,4 +1,14 @@
-import { computed, Directive, ElementRef, inject, input, linkedSignal, Renderer2, signal } from '@angular/core';
+import {
+  computed,
+  Directive,
+  effect,
+  ElementRef,
+  inject,
+  input,
+  linkedSignal,
+  Renderer2,
+  signal,
+} from '@angular/core';
 
 @Directive({
   selector: '[highlight]',
@@ -15,5 +25,11 @@ export class HighlightDirective {
 
   changeColor() {
     this.bg.set('pink');
+  }
+
+  constructor() {
+    effect(() => {
+      console.log('Highlight Directive Color = ', this.color());
+    });
   }
 }
