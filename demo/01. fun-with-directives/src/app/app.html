@@ -7,7 +7,14 @@
     applications and enable developers to create dynamic, interactive user interfaces.
   </p>
 
-  <h2 highlight>Agenda</h2>
+  <h2 highlight #abc="highlight">Agenda
+    @if(abc.isActive()) {
+      !!!
+    }
+
+  </h2>
+
+  <app-blank highlight #xyz="highlight" />
 
   <p>
     In this course, we will explore the fundamentals of Angular directives and learn how to 

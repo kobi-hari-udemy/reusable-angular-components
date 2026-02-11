@@ -18,6 +18,7 @@ import {
     '[style.cursor]': '"pointer"',
     '(click)': 'toggleActive()'
   },
+  exportAs: 'highlight'
 })
 export class HighlightDirective {
   readonly color = input('', {alias: 'highlight'});
