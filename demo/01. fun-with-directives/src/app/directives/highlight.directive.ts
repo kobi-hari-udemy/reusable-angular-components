@@ -15,21 +15,19 @@ import {
   host: {
     '[style.background-color]': 'bg()',
     '[style.cursor]': '"pointer"',
-    '(click)': 'changeColor()',
+    '(click)': 'toggleActive()'
   },
 })
 export class HighlightDirective {
   readonly color = input('', {alias: 'highlight'});
+  readonly isActive = signal(false);
 
-  readonly bg = linkedSignal(() => this.color() || 'lime');
+  readonly bg = computed(() => this.isActive()
+    ? 'pink'
+    : (this.color() || 'lime')
+  )
 
-  changeColor() {
-    this.bg.set('pink');
-  }
-
-  constructor() {
-    effect(() => {
-      console.log('Highlight Directive Color = ', this.color());
-    });
+  toggleActive() {
+    this.isActive.update(v => !v);
   }
 }
