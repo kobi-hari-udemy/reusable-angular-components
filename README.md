@@ -21,3 +21,6 @@ In this repository you can find all material for the course
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/01.%20fun-with-directives)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/01.%20fun-with-directives?title=Highlight%20Directive&file=README.md)
 
+* Practive 02 - Trying out Input Host Bindings and Listeners
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/02.%20fun-with-directives)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/02.%20fun-with-directives?title=Highlight%20Directive%20with%20Host%20Bindings%20and%20Listeners&file=README.md)
