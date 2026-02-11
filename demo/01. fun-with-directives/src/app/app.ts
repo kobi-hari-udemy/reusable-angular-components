@@ -10,4 +10,9 @@ import { Blank } from './components/blank/blank';
 })
 export class App {
   readonly myColor = signal('magenta');
+
+  onDeactivation(timeLength: number) {
+    const seconds = timeLength / 1000;
+    console.log(`Highlight Deactived after ${seconds} seconds`);
+  }
 }
