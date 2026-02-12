@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .field {
+        border: 1px solid gray;
+        background-color: rgb(231, 231, 231);
+        width: 200px;
+        height: 200px;
+        position: relative;
+
+        .ball {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: rgb(104, 104, 104);
+        }
+
+    }
+
+    .second {
+    }
+}
