@@ -1,7 +1,10 @@
-<div class="field">
-  <div class="ball">
+<div class="field" track-mouse #tracker="track-mouse">
+  <div class="ball"
+    [style.left.px]="tracker.x() - 12.5"
+    [style.top.px]="tracker.y() - 12.5"
+  >
   </div>
 </div>
 
-<div class="field second">
+<div class="field second" track-mouse>
 </div>

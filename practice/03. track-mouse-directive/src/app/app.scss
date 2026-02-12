@@ -21,5 +21,6 @@
     }
 
     .second {
+        background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), white, black);
     }
 }
