@@ -13,6 +13,7 @@ Implement the logic in the `TrackMouse` directive to listen for mouse movement e
 
 #### Hints: 
 - Inject the host element and use `getBoundingClientRect()` to get the host element position and dimensions. This will help you calculate the mouse position relative to the host element.
+- The file `helpers.ts` contains a function called `clamp` that can be used to ensure that a value stays within a specified range. This can be useful to ensure that the mouse coordinates do not exceed the boundaries of the host element.
 - Listen to the `mousemove` event on the host element to track the mouse movement. Use the event payload, and specifically the `clientX` and `clientY` properties, to get the mouse coordinates.
   
 ### Step 4
