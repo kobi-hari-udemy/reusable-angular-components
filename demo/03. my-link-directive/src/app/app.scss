@@ -1,33 +1,41 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    font-family: system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 nav {
-    display: flex;
-    background: var(--nav-bg);
+  display: flex;
+  background: var(--nav-bg);
 
-    a {
-        padding: 14px 20px;
-        text-decoration: none;
-        color: var(--nav-text);
-        font-weight: 500;
-        font-size: 14px;
-        transition: color 0.2s;
+  a {
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--nav-text);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
 
-        &:hover {
-            color: var(--nav-text-hover);
-        }
-
-        &.selected {
-            color: var(--nav-selected);
-            box-shadow: inset 0 -3px 0 var(--nav-indicator);
-        }
+    &:hover {
+      color: var(--nav-text-hover);
     }
+
+    &.selected {
+      color: var(--nav-selected);
+      box-shadow: inset 0 -3px 0 var(--nav-indicator);
+    }
+
+    &.chosen {
+      color: var(--nav-selected);
+      box-shadow: inset 0 -3px 0 green;
+    }
+  }
 }
 
 .main {
-    padding: 24px;
-    background: var(--content-bg);
+  padding: 24px;
+  background: var(--content-bg);
 }
