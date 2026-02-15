@@ -1,13 +1,8 @@
 import {
   computed,
   Directive,
-  effect,
-  ElementRef,
-  inject,
   input,
-  linkedSignal,
   output,
-  Renderer2,
   signal,
 } from '@angular/core';
 

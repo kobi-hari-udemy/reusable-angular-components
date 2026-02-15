@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { HighlightDirective } from './directives/highlight.directive';
-import { Blank } from './components/blank/blank';
+import { UnderlineDirective } from './directives/underline.directive';
 
 @Component({
   selector: 'app-root',
-  imports: [HighlightDirective, Blank],
+  imports: [HighlightDirective, UnderlineDirective],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
