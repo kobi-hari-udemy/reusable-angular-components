@@ -28,3 +28,7 @@ In this repository you can find all material for the course
 * Practice 03 - Tracking the mouse with Directives
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/03.%20track-mouse-directive)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/03.%20track-mouse-directive?title=Track%20Mouse%20Directive&file=README.md)
+
+* Practice 04 - Directive Composition with `hostDirectives`
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/04.%20my-link-directive)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/04.%20my-link-directive?title=MyLink%20Directive%20with%20hostDirectives&file=README.md)
