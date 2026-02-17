@@ -32,3 +32,8 @@ In this repository you can find all material for the course
 * Practice 04 - Directive Composition with `hostDirectives`
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/04.%20my-link-directive)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/04.%20my-link-directive?title=MyLink%20Directive%20with%20hostDirectives&file=README.md)
+
+### Section 3 - Fun with Selectors
+* Practice 05 - Fun with Selectors
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/05.%20fun-with-selectors)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/05.%20fun-with-selectors?title=Fun%20with%20Selectors&file=README.md)
