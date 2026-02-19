@@ -1,0 +1,44 @@
+:host {
+  --expander-primary: #6b45bf;
+  --expander-primary-light: color-mix(in srgb, var(--expander-primary) 15%, white);
+  --expander-border-color: color-mix(in srgb, var(--expander-primary) 25%, white);
+  --expander-shadow: color-mix(in srgb, var(--expander-primary) 8%, transparent);
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas:
+    'header toggle'
+    'content content';
+    
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--expander-border-color);
+  box-shadow: 0 2px 6px var(--expander-shadow);
+  background: #fff;
+}
+
+.header-area {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  background: var(--expander-primary-light);
+  color: var(--expander-primary);
+  font-weight: 600;
+}
+
+.toggle-area {
+  grid-area: toggle;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--expander-primary-light);
+}
+
+.content-area {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 20px;
+}
