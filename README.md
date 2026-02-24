@@ -45,3 +45,6 @@ In this repository you can find all material for the course
 * Practice 07 - Fun with Content (Part 2) - Refactoring the Expander to use Content Projection
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/07.%20fun-with-content-part-2)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/07.%20fun-with-content-part-2?title=Expander%20Component%20with%20Content%20Projection&file=README.md)
+* Practice 08 - Fun with Content (Part 3) - Multi-Slot Content Projection
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/08.%20fun-with-content-multi-slot)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/08.%20fun-with-content-multi-slot?title=Expander%20Component%20with%20Multi-Slot%20Content%20Projection&file=README.md)
