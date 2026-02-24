@@ -37,3 +37,8 @@ In this repository you can find all material for the course
 * Practice 05 - Fun with Selectors
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/05.%20fun-with-selectors)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/05.%20fun-with-selectors?title=Fun%20with%20Selectors&file=README.md)
+
+### Section 4 - Content Projection
+* Practice 06 - Fun with Content - Basic Expander Component
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/06.%20fun-with-content)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/06.%20fun-with-content?title=Basic%20Expander%20Component&file=README.md)
