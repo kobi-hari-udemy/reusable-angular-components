@@ -11,8 +11,6 @@ import { Component, computed, input, signal } from '@angular/core';
   }
 })
 export class ExpanderComponent {
-  readonly header = input('');
-
 
   readonly #isExpanded = signal(false);
 
