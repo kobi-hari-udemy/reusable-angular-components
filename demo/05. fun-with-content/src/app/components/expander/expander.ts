@@ -5,6 +5,10 @@ import { Component, computed, input, signal } from '@angular/core';
   imports: [],
   templateUrl: './expander.html',
   styleUrl: './expander.scss',
+  host: {
+    '[class.collapsed]': 'isCollapsed()', 
+    '[class.expanded]': 'isExpanded()'
+  }
 })
 export class ExpanderComponent {
   readonly #isExpanded = signal(false);
