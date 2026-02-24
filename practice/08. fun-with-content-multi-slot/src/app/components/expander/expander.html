@@ -1,0 +1,17 @@
+<div class="header-area">
+  {{ header() }}
+</div>
+<div class="toggle-area">
+  <button (click)="toggle()">
+    @if (isExpanded()) {
+      -
+    } @else {
+      +
+    }
+  </button>
+</div>
+@if (isExpanded()) {
+  <div class="content-area" animate.leave="leaves" animate.enter="enters">
+    <ng-content />
+  </div>
+}
