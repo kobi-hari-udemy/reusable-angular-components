@@ -2,7 +2,7 @@
 
 In this exercise we will refactor the `ExpanderComponent` to use **content projection** via `<ng-content>` instead of receiving the body content through a string input.
 
-The component (`components/expander/`) already has a working expander with a `header` input, a toggle button, and expand/collapse logic. However, the body content is still passed as a plain-text `content` string input and rendered with interpolation (`{{ content() }}`). The parent template (`app.html`) has already been updated to pass **rich HTML content** (headings, paragraphs, bold text) as children of each `<app-expander>` element — but it is not being projected yet.
+The component (`components/expander/`) already has a working expander with a `header` input, a toggle button, and expand/collapse logic. However, the body content is still passed as a plain-text `content` string input and rendered with interpolation (`{{ content() }}`). The parent template (`app.html`) has already been updated to pass **rich HTML content** (headings, paragraphs, bold text) as children of each `<app-expander>` element - but it is not being projected yet.
 
 ### Step 1
 Remove the `content` string input from the `ExpanderComponent`.
