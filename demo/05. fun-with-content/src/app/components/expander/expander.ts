@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-expander',
@@ -7,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './expander.scss',
 })
 export class ExpanderComponent {
+  readonly #isExpanded = signal(false);
+
+  readonly isExpanded = this.#isExpanded.asReadonly();
+  readonly isCollapsed = computed(() => !this.isExpanded());
+
+  toggle() {
+    this.#isExpanded.update(v => !v);
+  }
+
+
+  readonly header = input('');
+  readonly content = input('');
 
 }
