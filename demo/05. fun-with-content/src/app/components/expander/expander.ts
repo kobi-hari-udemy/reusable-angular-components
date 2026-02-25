@@ -1,23 +1,7 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { ExpanderComponent } from "./expander.component";
+import { ExpanderToggleDirective } from "./expander-toggle/expander-toggle";
 
-@Component({
-  selector: 'app-expander',
-  imports: [],
-  templateUrl: './expander.html',
-  styleUrl: './expander.scss',
-  host: {
-    '[class.collapsed]': 'isCollapsed()', 
-    '[class.expanded]': 'isExpanded()'
-  }
-})
-export class ExpanderComponent {
-
-  readonly #isExpanded = signal(false);
-
-  readonly isExpanded = this.#isExpanded.asReadonly();
-  readonly isCollapsed = computed(() => !this.isExpanded());
-
-  toggle() {
-    this.#isExpanded.update(v => !v);
-  }
-}
+export const Expander = [
+    ExpanderComponent, 
+    ExpanderToggleDirective
+];

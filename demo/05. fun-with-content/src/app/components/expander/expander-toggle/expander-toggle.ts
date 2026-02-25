@@ -1,5 +1,5 @@
 import { Directive, inject } from "@angular/core";
-import { ExpanderComponent } from "../expander";
+import { ExpanderComponent } from "../expander.component";
 
 @Directive({
     selector: '[expander-toggle]', 

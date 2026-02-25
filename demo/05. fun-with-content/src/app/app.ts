@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { ExpanderComponent } from './components/expander/expander';
 import { Icon } from './components/icon/icon';
-import { ExpanderToggleDirective } from './components/expander/expander-toggle/expander-toggle';
+import { Expander } from './components/expander/expander';
 
 @Component({
   selector: 'app-root',
-  imports: [ExpanderComponent, ExpanderToggleDirective, Icon],
+  imports: [Expander, Icon],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
