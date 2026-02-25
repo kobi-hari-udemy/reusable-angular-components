@@ -29,14 +29,14 @@ In `app.html`, add a custom button with the `expander-toggle` attribute inside e
 ```
 
 ### Step 3
-Run the application. The custom button appears in the toggle area — but **clicking it does nothing**. The `(click)="toggle()"` binding was on the old hard-coded button, and we **cannot place event bindings on `<ng-content>`** since it is not a real DOM element. We need another way to connect the projected button to the expander's `toggle()` method.
+Run the application. The custom button appears in the toggle area - but **clicking it does nothing**. The `(click)="toggle()"` binding was on the old hard-coded button, and we **cannot place event bindings on `<ng-content>`** since it is not a real DOM element. We need another way to connect the projected button to the expander's `toggle()` method.
 
 ---
 
-## Phase 2 — Create an `expander-toggle` directive
+## Phase 2 - Create an `expander-toggle` directive
 
 ### Step 4
-Create a new directive file, e.g. `components/expander/expander-toggle/expander-toggle.ts`. The directive's selector should be `[expander-toggle]` — the **same attribute** used for content projection. This way, any element marked with `expander-toggle` is both projected into the toggle slot **and** picked up by the directive automatically.
+Create a new directive file, e.g. `components/expander/expander-toggle/expander-toggle.ts`. The directive's selector should be `[expander-toggle]` - the **same attribute** used for content projection. This way, any element marked with `expander-toggle` is both projected into the toggle slot **and** picked up by the directive automatically.
 
 ```typescript
 @Directive({
@@ -64,10 +64,10 @@ Verify that clicking the custom buttons now correctly toggles the expanders.
 
 ---
 
-## Phase 3 — Package related pieces together
+## Phase 3 - Package related pieces together
 
 ### Step 7
-The consumer now needs to import both `ExpanderComponent` and `ExpanderToggle` separately. As a component library grows, this becomes tedious and error-prone — consumers have to know about every internal piece.
+The consumer now needs to import both `ExpanderComponent` and `ExpanderToggle` separately. As a component library grows, this becomes tedious and error-prone - consumers have to know about every internal piece.
 
 A simple and effective pattern is to **export an array** that bundles the component and its related directives together. Create (or update) an `index.ts` barrel file in the `components/expander/` folder:
 
@@ -85,11 +85,11 @@ imports: [Expander, Icon],
 Since Angular's `imports` array is flattened, passing a nested array works seamlessly - each item in the array is registered as if it were listed individually.
 
 ### Step 9
-Verify the application still works exactly as before. This is a purely organizational change — no behavior should differ.
+Verify the application still works exactly as before. This is a purely organizational change - no behavior should differ.
 
 ---
 
-## Phase 4 — Make the injection optional
+## Phase 4 - Make the injection optional
 
 ### Step 10
 If someone places `expander-toggle` on a button **outside** an `<app-expander>`, Angular will throw an injection error because there is no `ExpanderComponent` in the injector chain.
@@ -108,11 +108,11 @@ onClick() {
 }
 ```
 
-This makes the directive safe to use anywhere — it simply does nothing when there is no parent expander.
+This makes the directive safe to use anywhere - it simply does nothing when there is no parent expander.
 
 ---
 
-## Phase 5 — Chevron icon with rotation
+## Phase 5 - Chevron icon with rotation
 
 ### Step 11
 Now that we have a working custom toggle button, let's make it visually appealing. Use a **template reference variable** on `<app-expander>` to access the component's state and conditionally style the button.
@@ -144,7 +144,7 @@ Add CSS (in `app.scss` or inline styles) so that the `.icon-button` smoothly rot
 
 ---
 
-## Phase 6 — Fallback to a default toggle button
+## Phase 6 - Fallback to a default toggle button
 
 ### Step 13
 Now if a consumer does **not** provide a custom `expander-toggle` button, the toggle area will be empty - there will be no button at all.
@@ -228,7 +228,7 @@ export class ExpanderToggle {
 ```
 
 A few things to note:
-- The `expanderComponent` property is `private` — only the computed signals are exposed to the template.
+- The `expanderComponent` property is `private` - only the computed signals are exposed to the template.
 - `isExpanded` and `isCollapsed` are both `false` when there is no parent expander (since `undefined === true` and `undefined === false` are both `false`). This ensures the component degrades gracefully.
 - The template has a **default `<ng-content />`** slot in addition to the two conditional slots. This means the consumer can also place content that is visible in **both** states (e.g., an icon that is always shown alongside the state-dependent text).
 
@@ -247,7 +247,7 @@ Verify that the button text switches between "More" and "Less" depending on the 
 
 ---
 
-## Phase 8 — Directive Composition Pattern
+## Phase 8 - Directive Composition Pattern
 
 ### Step 20
 
@@ -257,4 +257,4 @@ Take a moment to reflect on what we've built. This practice demonstrates the **D
 - The directive uses **dependency injection** to reach its parent component, keeping the coupling implicit and clean.
 - By upgrading the directive to a component, we gained **template control** over the projected content, enabling state-dependent rendering.
 
-This is a powerful technique for building reusable component libraries — consumers simply drop an attribute on their own elements to opt into both slot placement and behavior, without needing to know the internal wiring.
+This is a powerful technique for building reusable component libraries - consumers simply drop an attribute on their own elements to opt into both slot placement and behavior, without needing to know the internal wiring.
