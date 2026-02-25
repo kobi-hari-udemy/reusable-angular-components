@@ -144,45 +144,9 @@ app-icon {
 
 ---
 
-## Phase 6 - Fallback to a default toggle button
+## Phase 6 - State-dependent content inside the toggle
 
 ### Step 13
-Now if a consumer does **not** provide a custom `expander-toggle` button, the toggle area will be empty - there will be no button at all.
-
-To fix this, detect whether a custom toggle was projected using `contentChild`, and if not, render a **default** button.
-
-In `expander.ts`, add a content child query for the `ExpanderToggle` directive, and a computed signal that indicates whether a custom toggle was found:
-
-```typescript
-readonly toggleDirective = contentChild(ExpanderToggle);
-readonly hasToggle = computed(() => !!this.toggleDirective());
-```
-
-### Step 14
-In `expander.html`, wrap the default button and the `<ng-content>` in a conditional block:
-
-```html
-<div class="toggle-area">
-  @if (hasToggle()) {
-    <ng-content select="[expander-toggle]" />
-  } @else {
-    <button (click)="toggle()">
-      @if (isExpanded()) { - } @else { + }
-    </button>
-  }
-</div>
-```
-
-Make sure to import `ExpanderToggle` in the `ExpanderComponent`.
-
-### Step 15
-Verify that expanders **with** a custom toggle button use the projected content, while expanders **without** one fall back to the default `+` / `-` button.
-
----
-
-## Phase 7 - State-dependent content inside the toggle
-
-### Step 16
 We now want the consumer to be able to provide **different content** for the expanded and collapsed states inside the custom toggle button:
 
 ```html
@@ -194,7 +158,7 @@ We now want the consumer to be able to provide **different content** for the exp
 
 To achieve this, convert `ExpanderToggle` from a **directive** to a **component**. As a component, it can have its own template that controls what gets rendered.
 
-### Step 17
+### Step 14
 Update the `ExpanderToggle` to be a component with a template that uses multi-slot `<ng-content>` to display content conditionally:
 
 ```typescript
@@ -232,7 +196,7 @@ A few things to note:
 - `isExpanded` and `isCollapsed` are both `false` when there is no parent expander (since `undefined === true` and `undefined === false` are both `false`). This ensures the component degrades gracefully.
 - The template has a **default `<ng-content />`** slot in addition to the two conditional slots. This means the consumer can also place content that is visible in **both** states (e.g., an icon that is always shown alongside the state-dependent text).
 
-### Step 18
+### Step 15
 In `app.html`, update the custom toggle buttons to use `expander-open` and `expander-closed` markers:
 
 ```html
@@ -242,8 +206,44 @@ In `app.html`, update the custom toggle buttons to use `expander-open` and `expa
 </button>
 ```
 
-### Step 19
+### Step 16
 Verify that the button text switches between "More" and "Less" depending on the expander state.
+
+---
+
+## Phase 7 - Fallback to a default toggle button
+
+### Step 17
+Now if a consumer does **not** provide a custom `expander-toggle` button, the toggle area will be empty - there will be no button at all.
+
+To fix this, detect whether a custom toggle was projected using `contentChild`, and if not, render a **default** button.
+
+In `expander.ts`, add a content child query for the `ExpanderToggle` directive, and a computed signal that indicates whether a custom toggle was found:
+
+```typescript
+readonly toggleDirective = contentChild(ExpanderToggle);
+readonly hasToggle = computed(() => !!this.toggleDirective());
+```
+
+### Step 18
+In `expander.html`, wrap the default button and the `<ng-content>` in a conditional block:
+
+```html
+<div class="toggle-area">
+  @if (hasToggle()) {
+    <ng-content select="[expander-toggle]" />
+  } @else {
+    <button (click)="toggle()">
+      @if (isExpanded()) { - } @else { + }
+    </button>
+  }
+</div>
+```
+
+Make sure to import `ExpanderToggle` in the `ExpanderComponent`.
+
+### Step 19
+Verify that expanders **with** a custom toggle button use the projected content, while expanders **without** one fall back to the default `+` / `-` button.
 
 ---
 
