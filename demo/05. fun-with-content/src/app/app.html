@@ -47,15 +47,10 @@
   </p>
 </app-expander>
 
-<app-expander #ex2>
+<app-expander>
   <button expander-toggle>
-    <span>
-      @if(ex2.isExpanded()) {
-        Less...
-      } @else {
-        More...
-      }
-    </span>
+    <span expander-open>Less...</span>
+    <span expander-closed>More...</span>
   </button>
 
   <span expander-header>

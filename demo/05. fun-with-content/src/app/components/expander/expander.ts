@@ -1,7 +1,7 @@
 import { ExpanderComponent } from "./expander.component";
-import { ExpanderToggleDirective } from "./expander-toggle/expander-toggle";
+import { ExpanderToggleComponent } from "./expander-toggle/expander-toggle.component";
 
 export const Expander = [
     ExpanderComponent, 
-    ExpanderToggleDirective
+    ExpanderToggleComponent
 ];
