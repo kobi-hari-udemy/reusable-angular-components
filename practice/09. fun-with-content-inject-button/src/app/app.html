@@ -1,0 +1,64 @@
+<app-expander>
+  <span expander-header>
+    <app-icon name="projection" />
+    What is Content Projection?</span
+  >
+  <h2>The Core Idea</h2>
+  <p>
+    Content projection is a pattern in Angular that allows a component to
+    <strong>accept and render markup provided by its parent</strong>. Rather than hardcoding its
+    inner structure, a component defines <strong>slots</strong>
+    where external content is inserted at runtime.
+  </p>
+
+  <h2>How It Works</h2>
+  <p>
+    Using the <strong>ng-content</strong> element, a component declares one or more projection
+    slots. The parent then passes arbitrary HTML or even other components into those slots, keeping
+    the child component <strong>flexible, reusable, and decoupled</strong> from the content it
+    displays.
+  </p>
+</app-expander>
+
+<app-expander>
+  <span expander-header>
+    <app-icon name="cogwheel" />
+
+    Creating Customizable Components</span
+  >
+  <h2>Beyond Inputs</h2>
+  <p>
+    Instead of relying on <strong>inputs for every visual variation</strong>, a component can expose
+    projection slots that let consumers inject their own templates, icons, or layouts. This keeps
+    the <strong>component API clean</strong> while offering unlimited flexibility.
+  </p>
+
+  <h2>Real-World Benefits</h2>
+  <p>
+    Buttons with custom icons, cards with rich headers, dialogs with dynamic footers — all become
+    possible without touching the component's internal code. Content projection makes components
+    <strong>truly open for extension</strong> while remaining closed for modification.
+  </p>
+</app-expander>
+
+<app-expander>
+  <span expander-header>
+    <app-icon name="modularity" />
+    Composite Components</span
+  >
+  <h2>Composition Over Configuration</h2>
+  <p>
+    Composite components take reusability further by
+    <strong>combining multiple smaller, focused components</strong> into a cohesive whole. Each
+    sub-component handles a single concern and communicates through
+    <strong>well-defined interfaces</strong>.
+  </p>
+
+  <h2>Building Blocks</h2>
+  <p>
+    Think of a data table built from separate column, header, and row components, or a form layout
+    assembled from field wrappers and validation indicators. This pattern lets consumers
+    <strong>mix and match building blocks</strong> to create highly customizable UIs without
+    modifying internal component code.
+  </p>
+</app-expander>
