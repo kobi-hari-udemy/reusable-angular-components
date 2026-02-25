@@ -2,13 +2,15 @@
   <ng-content select="[expander-header]"/>
 </div>
 <div class="toggle-area">
-  <button (click)="toggle()">
+  <ng-content select="[expander-toggle]"/>
+
+  <!-- <button (click)="toggle()">
     @if (isExpanded()) {
       -
     } @else {
       +
     }
-  </button>
+  </button> -->
 </div>
 @if (isExpanded()) {
   <div class="content-area" animate.leave="leaves" animate.enter="enters">
