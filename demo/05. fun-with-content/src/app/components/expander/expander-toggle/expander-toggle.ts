@@ -9,11 +9,13 @@ import { ExpanderComponent } from "../expander.component";
 })
 export class ExpanderToggleDirective {
 
-    readonly expanderComponent = inject(ExpanderComponent);
+    readonly expanderComponent = inject(ExpanderComponent, {
+        optional: true
+    });
 
     
     onClick() {
-        this.expanderComponent.toggle();
+        this.expanderComponent?.toggle();
     }
 
 }
