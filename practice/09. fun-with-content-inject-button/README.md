@@ -117,23 +117,23 @@ This makes the directive safe to use anywhere - it simply does nothing when ther
 ### Step 11
 Now that we have a working custom toggle button, let's make it visually appealing. Use a **template reference variable** on `<app-expander>` to access the component's state and conditionally style the button.
 
-In `app.html`, update each expander to use a template reference and a chevron icon:
+In `app.html`, update the expander to use a template reference and a chevron icon:
 
 ```html
 <app-expander #ex>
   <span expander-header>...</span>
-  <button expander-toggle class="icon-button" [class.expanded]="ex.isExpanded()">
-    <app-icon name="chevron" />
+  <button expander-toggle>
+    <app-icon name="chevron" [class.expanded]="ex.isExpanded()"/>
   </button>
   <!-- ...body content... -->
 </app-expander>
 ```
 
 ### Step 12
-Add CSS (in `app.scss` or inline styles) so that the `.icon-button` smoothly rotates its chevron icon when the expander is expanded. For example:
+Add CSS (in `app.scss` or inline styles) so that the `app-icon` smoothly rotates its chevron icon when the expander is expanded. For example:
 
 ```scss
-.icon-button {
+app-icon {
   transition: rotate 300ms;
   
   &.expanded {

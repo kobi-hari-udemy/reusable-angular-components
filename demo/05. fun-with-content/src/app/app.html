@@ -1,8 +1,8 @@
 <button expander-toggle>Hello</button>
 
-<app-expander>
+<app-expander #ex>
   <button expander-toggle>
-    <app-icon name="chevron"/>
+    <app-icon name="chevron" [class.expanded]="ex.isExpanded()"/>
   </button>
 
   <span expander-header>
@@ -47,7 +47,17 @@
   </p>
 </app-expander>
 
-<app-expander>
+<app-expander #ex2>
+  <button expander-toggle>
+    <span>
+      @if(ex2.isExpanded()) {
+        Less...
+      } @else {
+        More...
+      }
+    </span>
+  </button>
+
   <span expander-header>
     <app-icon name="modularity" />
     Composite Components</span

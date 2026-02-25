@@ -15,9 +15,24 @@ span[expander-header] {
   flex-direction: row;
   align-items: center;
   gap: 10px;
-  
+
   app-icon {
     color: var(--p-04);
   }
 }
 
+button[expander-toggle] {
+  width: auto;
+
+  span {
+    font-size: 0.6em;
+  }
+
+  app-icon {
+    transition: transform 0.3s;
+
+    &.expanded {
+      transform: rotate(180deg);
+    }
+  }
+}
