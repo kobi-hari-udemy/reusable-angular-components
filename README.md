@@ -48,3 +48,6 @@ In this repository you can find all material for the course
 * Practice 08 - Fun with Content (Part 3) - Multi-Slot Content Projection
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/08.%20fun-with-content-multi-slot)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/08.%20fun-with-content-multi-slot?title=Expander%20Component%20with%20Multi-Slot%20Content%20Projection&file=README.md)
+* Practice 09 - Fun with Content (Part 4) - Customizable Toggle Button
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/09.%20fun-with-content-inject-button)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/09.%20fun-with-content-inject-button?title=Expander%20Component%20with%20Customizable%20Toggle%20Button&file=README.md)
