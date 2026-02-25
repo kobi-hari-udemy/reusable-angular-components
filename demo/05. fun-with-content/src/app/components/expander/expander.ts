@@ -20,7 +20,4 @@ export class ExpanderComponent {
   toggle() {
     this.#isExpanded.update(v => !v);
   }
-
-
-
 }
