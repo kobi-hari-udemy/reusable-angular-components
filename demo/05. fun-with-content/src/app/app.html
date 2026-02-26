@@ -1,11 +1,9 @@
-<button expander-toggle>Hello</button>
-
 <app-expander #ex>
   <button expander-toggle>
     <app-icon name="chevron" [class.expanded]="ex.isExpanded()"/>
   </button>
 
-  <span expander-header>
+  <span expander-header toggle>
     <app-icon name="projection" />
     What is Content Projection?</span
   >

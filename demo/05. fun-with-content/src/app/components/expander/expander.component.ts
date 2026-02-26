@@ -1,4 +1,4 @@
-import { Component, computed, contentChild, signal } from '@angular/core';
+import { Component, computed, contentChild, input, signal } from '@angular/core';
 import { ExpanderToggleComponent } from './expander-toggle/expander-toggle.component';
 
 @Component({
