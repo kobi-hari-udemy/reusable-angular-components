@@ -5,21 +5,31 @@
 // --app-expander-animation-duration
 // --app-expander-border-radius
 
-  // --expander-primary: #6b45bf;
-  // --expander-primary-light: color-mix(in srgb, var(--expander-primary) 15%, white);
-  // --expander-border-color: color-mix(in srgb, var(--expander-primary) 25%, white);
-  // --expander-shadow: color-mix(in srgb, var(--expander-primary) 8%, transparent);
+// --expander-primary: #6b45bf;
+// --expander-primary-light: color-mix(in srgb, var(--expander-primary) 15%, white);
+// --expander-border-color: color-mix(in srgb, var(--expander-primary) 25%, white);
+// --expander-shadow: color-mix(in srgb, var(--expander-primary) 8%, transparent);
 
 :host {
   --_app-expander-base-color: var(--app-expander-base-color, #6b45bf);
 
   --_app-expander-base-light: color-mix(in srgb, var(--_app-expander-base-color), white 75%);
   --_app-expander-base-lighter: color-mix(in srgb, var(--_app-expander-base-color), white 85%);
-  --_app-expander-base-transparent: color-mix(in srgb, var(--_app-expander-base-color), transparent 90%);
+  --_app-expander-base-transparent: color-mix(
+    in srgb,
+    var(--_app-expander-base-color),
+    transparent 90%
+  );
 
-  --_app-expander-header-background-color: var(--app-expander-header-background-color, var(--_app-expander-base-lighter));
+  --_app-expander-header-background-color: var(
+    --app-expander-header-background-color,
+    var(--_app-expander-base-lighter)
+  );
   --_app-expander-border-color: var(--app-expander-border-color, var(--_app-expander-base-light));
-  --_app-expander-shadow-color: var(--app-expander-shadow-color, var(--_app-expander-base-transparent));
+  --_app-expander-shadow-color: var(
+    --app-expander-shadow-color,
+    var(--_app-expander-base-transparent)
+  );
   --_app-expander-animation-duration: var(--app-expander-animation-duration, 300ms);
   --_app-expander-border-radius: var(--app-expander-border-radius, 10px);
 
@@ -29,7 +39,7 @@
   grid-template-areas:
     'header toggle'
     'content content';
-    
+
   border-radius: var(--_app-expander-border-radius);
   overflow: hidden;
   border: 1px solid var(--_app-expander-border-color);
@@ -37,11 +47,9 @@
   background: #fff;
   transition: grid-template-rows var(--_app-expander-animation-duration);
 
-  &.collapsed{
+  &.collapsed {
     grid-template-rows: min-content 0fr;
   }
-
-
 }
 
 .header-area {
@@ -68,6 +76,28 @@
   flex-direction: column;
   padding: 14px 20px;
   min-height: 0;
+
+  ::ng-deep h2 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--_app-expander-base-color);
+    margin: 12px 0 4px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  ::ng-deep p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0 0 8px;
+    color: var(--n-06);
+  }
+
+  ::ng-deep strong {
+    color: var(--p-07);
+  }
 
   &.leaves {
     animation: delay var(--_app-expander-animation-duration);
