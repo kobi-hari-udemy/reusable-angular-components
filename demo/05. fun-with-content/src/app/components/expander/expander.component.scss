@@ -1,3 +1,5 @@
+// Design Tokens
+// =======================================
 // --app-expander-base-color
 // --app-expander-header-background-color
 // --app-expander-border-color
@@ -5,16 +7,13 @@
 // --app-expander-animation-duration
 // --app-expander-border-radius
 
-// --expander-primary: #6b45bf;
-// --expander-primary-light: color-mix(in srgb, var(--expander-primary) 15%, white);
-// --expander-border-color: color-mix(in srgb, var(--expander-primary) 25%, white);
-// --expander-shadow: color-mix(in srgb, var(--expander-primary) 8%, transparent);
-
 :host {
   --_app-expander-base-color: var(--app-expander-base-color, #6b45bf);
 
+  --_app-expander-base-semi-light: color-mix(in srgb, var(--_app-expander-base-color), white 30%);
   --_app-expander-base-light: color-mix(in srgb, var(--_app-expander-base-color), white 75%);
   --_app-expander-base-lighter: color-mix(in srgb, var(--_app-expander-base-color), white 85%);
+  --_app-expander-base-dark: color-mix(in srgb, var(--_app-expander-base-color), black 40%);
   --_app-expander-base-transparent: color-mix(
     in srgb,
     var(--_app-expander-base-color),
@@ -60,6 +59,10 @@
   background: var(--_app-expander-header-background-color);
   color: var(--_app-expander-base-color);
   font-weight: 600;
+
+  ::ng-deep app-icon {
+    color: var(--_app-expander-base-semi-light);
+  }
 }
 
 .toggle-area {
@@ -68,6 +71,32 @@
   align-items: center;
   padding: 0 16px;
   background: var(--_app-expander-header-background-color);
+
+  & > ::ng-deep button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-left: auto;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: var(--_app-expander-base-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--_app-expander-base-color) 10%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--_app-expander-base-color);
+      outline-offset: 1px;
+    }
+  }
 }
 
 .content-area {
@@ -92,11 +121,11 @@
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 0 0 8px;
-    color: var(--n-06);
+    color: rgb(120, 120, 120);
   }
 
   ::ng-deep strong {
-    color: var(--p-07);
+    color: var(--_app-expander-base-dark);
   }
 
   &.leaves {
