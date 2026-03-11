@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
-import { AbcDirective } from './abc.directive';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, AbcDirective],
+  imports: [CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

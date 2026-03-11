@@ -1,15 +1,15 @@
-<ng-template #myTemplate>
-  <h1>Hello World</h1>
+<ng-template #myTemplate let-title="caption" let-color="foreground">
+  <h1 [style.color]="color">{{title}}</h1>
 </ng-template>
 
 <ng-container
-  *ngTemplateOutlet="myTemplate"
+  *ngTemplateOutlet="myTemplate; context: {caption: 'Hello', foreground: 'green'}"
 />
 
 <ng-container
-  *ngTemplateOutlet="myTemplate"
+  *ngTemplateOutlet="myTemplate; context: {caption: 'World', foreground: 'blue'}"
 />
 
 <ng-container
-  *ngTemplateOutlet="myTemplate"
+  *ngTemplateOutlet="myTemplate; context: {caption: 'Templates', foreground: 'purple'}"
 />
