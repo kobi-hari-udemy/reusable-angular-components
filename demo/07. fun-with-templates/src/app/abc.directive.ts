@@ -1,4 +1,4 @@
-import { Directive, ElementRef, inject } from "@angular/core";
+import { Directive, ElementRef, inject, TemplateRef } from "@angular/core";
 
 @Directive({
     selector: '[abc]'
@@ -6,7 +6,10 @@ import { Directive, ElementRef, inject } from "@angular/core";
 export class AbcDirective {
     readonly hostElement = inject(ElementRef);
 
+    readonly template = inject(TemplateRef<any>);
+
     constructor() {
         console.log(this.hostElement);
+        console.log(this.template);
     }
 }
