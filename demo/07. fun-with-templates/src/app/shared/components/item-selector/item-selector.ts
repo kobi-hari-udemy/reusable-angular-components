@@ -18,6 +18,10 @@ export class ItemSelectorComponent {
   readonly hasItemTemplate = computed(() => !!this.itemTemplateDirective());
   readonly itemTemplate = computed(() => this.itemTemplateDirective()?.template ?? null);
 
+  readonly itemContainerDirective = contentChild(ItemContainerDirective);
+  readonly hasItemContainer = computed(() => !!this.itemContainerDirective());
+  readonly itemContainer = computed(() => this.itemContainerDirective()?.template ?? null);
+
   select(option: string) {
     this.selectedOption.set(option);
   }

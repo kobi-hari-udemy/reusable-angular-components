@@ -2,6 +2,7 @@
   <app-item-selector title="Colors" [options]="possibleColors()" [(selectedOption)]="selectedColor">
     <div
       class="color-container"
+      [style.--color-option]="value"
       *appItemContainer="let value; let selected = isSelected; let action = onSelect"
       [class.chosen]="selected"
       (click)="action()"

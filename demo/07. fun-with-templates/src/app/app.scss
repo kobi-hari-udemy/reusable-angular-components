@@ -11,6 +11,25 @@
   padding: 1rem;
   box-sizing: border-box;
 
+  .color-container {
+    border: 1px solid var(--color-option);
+    color: var(--color-option);
+    padding: 5px;
+    border-radius: 4px;
+    background-color: var(--n-00);
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: color-mix(in srgb, var(--color-option), var(--n-00) 70%);
+    }
+
+    &.chosen {
+      background-color: var(--color-option);
+      color: var(--n-00);
+    }
+  }
+
   .colors-area {
     grid-area: color;
   }
