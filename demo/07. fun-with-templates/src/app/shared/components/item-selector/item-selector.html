@@ -6,7 +6,12 @@
       [class.is-selected]="selectedOption() === option"
       (click)="select(option)"
     >
+    @if(hasItemTemplate()) {
+      <ng-container *ngTemplateOutlet="itemTemplate(); context: {$implicit: option}"/>
+
+    } @else {
       {{ option }}
+    }
     </div>
   }
 </div>

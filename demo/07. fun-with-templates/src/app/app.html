@@ -1,16 +1,26 @@
+<ng-template #colorTemplate let-color>
+	<span [style.color]="color">{{color}}</span>
+</ng-template>
+
 <div class="colors-area">
 	<app-item-selector
 		title="Colors"
 		[options]="possibleColors()"
 		[(selectedOption)]="selectedColor"
+		[itemTemplate]="colorTemplate"
 	/>
 </div>
+
+<ng-template #fontTemplate let-value>
+	<span [style.font-family]="value">{{value}}</span>
+</ng-template>
 
 <div class="fonts-area">
 	<app-item-selector
 		title="Fonts"
 		[options]="possibleFonts()"
 		[(selectedOption)]="selectedFont"
+		[itemTemplate]="fontTemplate"
 	/>
 </div>
 
