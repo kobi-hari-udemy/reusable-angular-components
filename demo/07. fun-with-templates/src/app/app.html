@@ -1,24 +1,29 @@
 <div class="colors-area">
   <app-item-selector title="Colors" [options]="possibleColors()" [(selectedOption)]="selectedColor">
-    <span *appItemTemplate="let color" [style.color]="color">
-      {{ color }}
-    </span>
+    <div
+      class="color-container"
+      *appItemContainer="let value; let selected = isSelected; let action = onSelect"
+      [class.chosen]="selected"
+      (click)="action()"
+    >
+      {{ value }}
+    </div>
   </app-item-selector>
 </div>
 
 <div class="fonts-area">
   <app-item-selector title="Fonts" [options]="possibleFonts()" [(selectedOption)]="selectedFont">
     <span *appItemTemplate="let value" [style.font-family]="value">
-		{{ value }}
-	</span>
+      {{ value }}
+    </span>
   </app-item-selector>
 </div>
 
 <div class="sizes-area">
   <app-item-selector title="Sizes" [options]="possibleSizes()" [(selectedOption)]="selectedSize">
-	<span *appItemTemplate="let value" [style.font-size]="value">
-		{{value}}
-	</span>
+    <span *appItemTemplate="let value" [style.font-size]="value">
+      {{ value }}
+    </span>
   </app-item-selector>
 </div>
 
