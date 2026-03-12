@@ -13,8 +13,9 @@ export class ItemSelectorComponent {
   readonly options = input.required<string[]>();
   readonly selectedOption = model('');
 
-  readonly itemTemplate = contentChild<TemplateRef<any>>(TemplateRef);
-  readonly hasItemTemplate = computed(() => !!this.itemTemplate());
+  readonly itemTemplateDirective = contentChild(ItemTemplateDirective);
+  readonly hasItemTemplate = computed(() => !!this.itemTemplateDirective());
+  readonly itemTemplate = computed(() => this.itemTemplateDirective()?.template ?? null);
 
   select(option: string) {
     this.selectedOption.set(option);

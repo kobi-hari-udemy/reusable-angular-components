@@ -8,14 +8,15 @@
 
 <div class="fonts-area">
   <app-item-selector title="Fonts" [options]="possibleFonts()" [(selectedOption)]="selectedFont">
-    <ng-template let-value>
+    <ng-template appItemTemplate let-value>
       <span [style.font-family]="value">{{ value }}</span>
     </ng-template>
   </app-item-selector>
 </div>
 
 <div class="sizes-area">
-  <app-item-selector title="Sizes" [options]="possibleSizes()" [(selectedOption)]="selectedSize" />
+  <app-item-selector title="Sizes" [options]="possibleSizes()" [(selectedOption)]="selectedSize">
+  </app-item-selector>
 </div>
 
 <div class="editor-area">
