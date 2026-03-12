@@ -273,3 +273,86 @@ Apply the same pattern to the font and size selectors:
 
 ### Step 21
 Verify the application: all three selectors should render their options with custom styling - colors in their color, fonts in their font, sizes in their size - and selection should still work correctly. The template code is now clean, co-located, and strongly typed.
+
+---
+
+## Phase 4 - Use the star directive syntax
+
+### Background
+Angular provides a shorthand known as the **star syntax** (`*directive`) for directives placed on `<ng-template>`. When you write:
+
+```html
+<span *appItemTemplate="let color">{{ color }}</span>
+```
+
+Angular **desugars** it into:
+
+```html
+<ng-template appItemTemplate let-color>
+  <span>{{ color }}</span>
+</ng-template>
+```
+
+The star tells Angular to wrap the host element in an `<ng-template>` and move the directive onto it. This is the same mechanism used by built-in structural directives like `*ngIf` and `*ngFor`. Any directive that injects `TemplateRef` can be used with this syntax.
+
+The benefit is purely ergonomic - one less level of nesting and no explicit `<ng-template>` tag.
+
+### Step 22
+In `app.html`, replace the explicit `<ng-template app-item-template let-...>` wrappers with the star syntax. For example, the color selector becomes:
+
+```html
+<div class="colors-area">
+  <app-item-selector
+    title="Color"
+    [options]="possibleColors()"
+    [(selectedOption)]="selectedColor"
+  >
+    <span *appItemTemplate="let color" [style.color]="color">{{ color }}</span>
+  </app-item-selector>
+</div>
+```
+
+Apply the same transformation to the font and size selectors.
+
+Note that the star syntax requires the directive selector to be in **camelCase** (e.g. `*appItemTemplate`), not kebab-case. Update the directive's selector from `[app-item-template]` to `[appItemTemplate]` to match.
+
+### Step 23
+Verify the application still works exactly as before - this is a purely syntactic change with no behavioral difference.
+
+---
+
+## Phase 5 - Customizable option container via a second template directive
+
+The `ItemSelector` currently lets consumers customize the **content** of each option chip (via `appItemTemplate`), but the chip container itself - including its selected/unselected styling and click behavior - is hard-coded inside the component. What if a consumer wants to completely change how selection looks? For example, using checkboxes, radio buttons, or a totally different visual treatment for the selected state.
+
+To support this, we will introduce a second template directive called `app-item-container` that lets the consumer take full control of the **entire option element**, not just its inner content.
+
+### Step 24
+Create a new directive at `app/components/item-selector/item-container.directive.ts` with the selector `[app-item-container]`.
+
+The directive should:
+- Inject a `TemplateRef` just like `ItemTemplateDirective` does.
+- Define a **context type** that is richer than `ItemTemplateContext`. The context should provide three things to the consumer's template:
+  - The option string (as `$implicit`).
+  - A boolean indicating whether this option is currently selected (`isSelected`).
+  - A callback function that the consumer can call to select this option (`onSelect`).
+
+### Step 25
+In `item-selector.ts`, detect the new directive via `contentChild` - the same pattern used for `ItemTemplateDirective`. Add `hasItemContainer` and `itemContainer` computed signals that mirror the existing `hasItemTemplate` / `itemTemplate` pair.
+
+### Step 26
+Update `item-selector.html` to support the new container template. The rendering logic should now have **three tiers** of customization, checked in this order:
+
+1. If an **item container** template is projected, use it for the entire option - stamp it out via `ngTemplateOutlet` with a context object containing the option string, the `isSelected` boolean, and a callback that calls `select(option)`.
+2. Otherwise, render the default `.option-item` div (with built-in selected styling and click handling), and inside it:
+   - If an **item template** is projected, use it for the inner content.
+   - Otherwise, render the option as plain text.
+
+### Step 27
+Add `ItemContainerDirective` to the exported `ItemSelector` array so consumers get it automatically.
+
+### Step 28
+In `app.html`, try out the new directive on one of the selectors. For example, in the color selector, provide an `app-item-container` template that renders each option using your own custom markup. Use the `let-` syntax to capture the context variables: the option value (implicit), `isSelected`, and `onSelect`. Wire `onSelect` to a click handler and use `isSelected` to conditionally apply your own styling or CSS classes.
+
+### Step 29
+Verify the application: the selector with the custom container should render with your custom look and feel, while the other selectors continue to use the default chip styling. Selection should still work correctly across all selectors.
