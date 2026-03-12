@@ -1,35 +1,21 @@
-<ng-template #colorTemplate let-color>
-	<span [style.color]="color">{{color}}</span>
-</ng-template>
-
 <div class="colors-area">
-	<app-item-selector
-		title="Colors"
-		[options]="possibleColors()"
-		[(selectedOption)]="selectedColor"
-		[itemTemplate]="colorTemplate"
-	/>
+  <app-item-selector title="Colors" [options]="possibleColors()" [(selectedOption)]="selectedColor">
+    <ng-template let-color>
+      <span [style.color]="color">{{ color }}</span>
+    </ng-template>
+  </app-item-selector>
 </div>
 
-<ng-template #fontTemplate let-value>
-	<span [style.font-family]="value">{{value}}</span>
-</ng-template>
-
 <div class="fonts-area">
-	<app-item-selector
-		title="Fonts"
-		[options]="possibleFonts()"
-		[(selectedOption)]="selectedFont"
-		[itemTemplate]="fontTemplate"
-	/>
+  <app-item-selector title="Fonts" [options]="possibleFonts()" [(selectedOption)]="selectedFont">
+    <ng-template let-value>
+      <span [style.font-family]="value">{{ value }}</span>
+    </ng-template>
+  </app-item-selector>
 </div>
 
 <div class="sizes-area">
-	<app-item-selector
-		title="Sizes"
-		[options]="possibleSizes()"
-		[(selectedOption)]="selectedSize"
-	/>
+  <app-item-selector title="Sizes" [options]="possibleSizes()" [(selectedOption)]="selectedSize" />
 </div>
 
 <div class="editor-area">

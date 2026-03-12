@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, input, model, TemplateRef } from '@angular/core';
+import { Component, computed, contentChild, input, model, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-item-selector',
@@ -12,7 +12,7 @@ export class ItemSelectorComponent {
   readonly options = input.required<string[]>();
   readonly selectedOption = model('');
 
-  readonly itemTemplate = input<TemplateRef<any>>();
+  readonly itemTemplate = contentChild<TemplateRef<any>>(TemplateRef);
   readonly hasItemTemplate = computed(() => !!this.itemTemplate());
 
   select(option: string) {
