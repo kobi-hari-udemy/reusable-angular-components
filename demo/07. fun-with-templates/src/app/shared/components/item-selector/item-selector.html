@@ -1,0 +1,12 @@
+<span>{{title()}}</span>
+<div class="options-list">
+  @for (option of options(); track option) {
+    <div
+      class="option-item"
+      [class.is-selected]="selectedOption() === option"
+      (click)="select(option)"
+    >
+      {{ option }}
+    </div>
+  }
+</div>

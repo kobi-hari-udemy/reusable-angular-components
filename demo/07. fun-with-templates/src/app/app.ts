@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { COLOR_NAMES, FONT_NAMES, SIZES } from './data/constants';
+import { ItemSelectorComponent } from './shared/components/item-selector/item-selector';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  imports: [ItemSelectorComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -15,16 +16,4 @@ export class App {
   readonly selectedColor = signal(this.possibleColors()[0]);
   readonly selectedFont = signal(this.possibleFonts()[0]);
   readonly selectedSize = signal(this.possibleSizes()[0]);
-
-  onColorChange(color: string): void {
-    this.selectedColor.set(color);
-  }
-
-  onFontChange(font: string): void {
-    this.selectedFont.set(font);
-  }
-
-  onSizeChange(size: string): void {
-    this.selectedSize.set(size);
-  }
 }

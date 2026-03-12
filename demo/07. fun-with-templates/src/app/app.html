@@ -1,59 +1,32 @@
 <div class="colors-area">
-	<div class="item-selector">
-		<span>Color</span>
-		<div class="options-list">
-			@for (color of possibleColors(); track color) {
-				<div
-					class="option-item"
-					[class.is-selected]="selectedColor() === color"
-					(click)="onColorChange(color)"
-				>
-					{{ color }}
-				</div>
-			}
-		</div>
-	</div>
-	</div>
+	<app-item-selector
+		title="Colors"
+		[options]="possibleColors()"
+		[(selectedOption)]="selectedColor"
+	/>
+</div>
 
 <div class="fonts-area">
-	<div class="item-selector">
-		<span>Font</span>
-		<div class="options-list">
-			@for (font of possibleFonts(); track font) {
-				<div
-					class="option-item"
-					[class.is-selected]="selectedFont() === font"
-					(click)="onFontChange(font)"
-				>
-					{{ font }}
-				</div>
-			}
-		</div>
-	</div>
+	<app-item-selector
+		title="Fonts"
+		[options]="possibleFonts()"
+		[(selectedOption)]="selectedFont"
+	/>
 </div>
 
 <div class="sizes-area">
-	<div class="item-selector">
-		<span>Size</span>
-		<div class="options-list">
-			@for (size of possibleSizes(); track size) {
-				<div
-					class="option-item"
-					[class.is-selected]="selectedSize() === size"
-					(click)="onSizeChange(size)"
-				>
-					{{ size }}
-				</div>
-			}
-		</div>
-	</div>
+	<app-item-selector
+		title="Sizes"
+		[options]="possibleSizes()"
+		[(selectedOption)]="selectedSize"
+	/>
 </div>
 
 <div class="editor-area">
-	<textarea
-		placeholder="Type your text here..."
-		[style.color]="selectedColor()"
-		[style.font-family]="selectedFont()"
-		[style.font-size]="selectedSize()"
-	></textarea>
+  <textarea
+    placeholder="Type your text here..."
+    [style.color]="selectedColor()"
+    [style.font-family]="selectedFont()"
+    [style.font-size]="selectedSize()"
+  ></textarea>
 </div>
