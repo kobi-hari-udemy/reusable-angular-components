@@ -57,3 +57,8 @@ In this repository you can find all material for the course
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/10.%20fun-with-content-views)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/10.%20fun-with-content-views?title=Fun%20with%20View%20Encapsulation&file=README.md)
 
+
+### Section 7 - Practicing Templates - The Item Selector Component
+* Practice 11 - Fun with Templates - The Item Selector Component
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/11.%20fun-with-templates)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/11.%20fun-with-templates?title=Fun%20with%20Templates%20-%20The%20Item%20Selector%20Component&file=README.md)

@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: rgb(21, 143, 84);
+  --foreground-color: light-dark(black, white);
+  --background-color: light-dark(white, black);
+
+  --p-00: var(--background-color);
+  --p-02: color-mix(in srgb, var(--primary-color), var(--background-color) 96%);
+  --p-05: color-mix(in srgb, var(--primary-color), var(--background-color) 90%);
+  --p-10: color-mix(in srgb, var(--primary-color), var(--background-color) 80%);
+  --p-20: color-mix(in srgb, var(--primary-color), var(--background-color) 60%);
+  --p-30: color-mix(in srgb, var(--primary-color), var(--background-color) 40%);
+  --p-40: color-mix(in srgb, var(--primary-color), var(--background-color) 20%);
+  --p-50: var(--primary-color);
+  --p-60: color-mix(in srgb, var(--primary-color), var(--foreground-color) 20%);
+  --p-70: color-mix(in srgb, var(--primary-color), var(--foreground-color) 40%);
+  --p-80: color-mix(in srgb, var(--primary-color), var(--foreground-color) 60%);
+  --p-90: color-mix(in srgb, var(--primary-color), var(--foreground-color) 80%);
+  --p-95: color-mix(in srgb, var(--primary-color), var(--foreground-color) 90%);
+  --p-97: color-mix(in srgb, var(--primary-color), var(--foreground-color) 94%);
+  --p-99: var(--foreground-color);
+
+  --n-00: var(--background-color);
+  --n-02: color-mix(in srgb, var(--foreground-color), var(--background-color) 98%);
+  --n-05: color-mix(in srgb, var(--foreground-color), var(--background-color) 95%);
+  --n-10: color-mix(in srgb, var(--foreground-color), var(--background-color) 90%);
+  --n-20: color-mix(in srgb, var(--foreground-color), var(--background-color) 80%);
+  --n-30: color-mix(in srgb, var(--foreground-color), var(--background-color) 70%);
+  --n-40: color-mix(in srgb, var(--foreground-color), var(--background-color) 60%);
+  --n-50: color-mix(in srgb, var(--foreground-color), var(--background-color) 50%);
+  --n-60: color-mix(in srgb, var(--foreground-color), var(--background-color) 40%);
+  --n-70: color-mix(in srgb, var(--foreground-color), var(--background-color) 30%);
+  --n-80: color-mix(in srgb, var(--foreground-color), var(--background-color) 20%);
+  --n-90: color-mix(in srgb, var(--foreground-color), var(--background-color) 10%);
+  --n-95: color-mix(in srgb, var(--foreground-color), var(--background-color) 5%);
+  --n-97: color-mix(in srgb, var(--foreground-color), var(--background-color) 3%);
+  --n-99: var(--foreground-color);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
