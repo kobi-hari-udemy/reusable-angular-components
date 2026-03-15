@@ -1,6 +1,13 @@
-<div *myFor></div>
+<div *myFor="let item of items(); let i = index; let l = last; trackBy (i, j) => i"></div>
 
-<div *myIf></div>
+<div *ngFor="let item of items(); let i = index; let l = last; trackBy (i, j) => i">
+
+</div>
+
+<div *myIf="value() as ourVal">
+  {{ ourVal }}
+</div>
+
 
 <div *myTimer="times() as interval; from: 10 as startingPoint; to: 0; step: -1; 
     let count = value; let status = state">
