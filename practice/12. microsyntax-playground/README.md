@@ -107,7 +107,7 @@ Add these inputs with appropriate defaults. Think about what reasonable default 
 In `app.html`, update the `*myTimer` usage:
 
 ```html
-<div *myTimer="1000; from: 10; to: 0; step: 1">
+<div *myTimer="1000; from: 10; to: 0; step: -1">
   Timer
 </div>
 ```
