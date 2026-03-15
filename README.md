@@ -62,3 +62,8 @@ In this repository you can find all material for the course
 * Practice 11 - Fun with Templates - The Item Selector Component
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/11.%20fun-with-templates)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/11.%20fun-with-templates?title=Fun%20with%20Templates%20-%20The%20Item%20Selector%20Component&file=README.md)
+
+### Section 8 - Understanding the Micro Syntax
+* Practice 12 - Microsyntax Playground - Building a Custom Structural Directive
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/12.%20microsyntax-playground)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/12.%20microsyntax-playground?title=Microsyntax%20Playground%20-%20Building%20a%20Custom%20Structural%20Directive&file=README.md)
