@@ -1,7 +1,15 @@
-<div *myFor="let item of items(); let i = index; let l = last; trackBy (i, j) => i"></div>
+<div *myFor="
+  let item of items(); 
+  let i = index;
+  let l = last;
+  trackBy (i, j) => i  
+  "></div>
 
-<div *ngFor="let item of items(); let i = index; let l = last; trackBy (i, j) => i">
-
+<div *ngFor="
+  let item of items(); 
+  let i = index; 
+  let l = last; 
+  trackBy (i, j) => i">
 </div>
 
 <div *myIf="value() as ourVal">
