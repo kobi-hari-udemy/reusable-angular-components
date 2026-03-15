@@ -2,15 +2,19 @@
 
 <div *myIf></div>
 
-<div *myTimer="1000; from 10; to 0; step: -1"></div>
-
-<div *myRepeat="5 start 6 skip 2">
-    Repeat me 5 times
+<div *myTimer="1000; from: 10; to: 0; step: -1; 
+    let count = value; let status = state">
+  Count: {{ count }} ({{status}})
 </div>
 
-<!-- <ng-template 
-    [myRepeat]="5" 
-    [myRepeatStart]="6" 
-    [myRepeatSkip]="2">
-  <div>Repeat me 5 times</div>
-</ng-template> -->
+<div
+  *myRepeat="5; start: 6; skip: 2; 
+    let value; let i = index; 
+    let isFirst = first; let isLast = last"
+>
+  {{i}} - Repeating text value {{ value }}, First: {{ isFirst}}, Last: {{ isLast }}
+</div>
+
+<ng-template [myRepeat]="5" [myRepeatStart]="6" [myRepeatSkip]="2" let-value="value">
+  <div>Repeat me 5 times, this is time number {{ value }}</div>
+</ng-template>

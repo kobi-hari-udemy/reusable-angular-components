@@ -1,5 +1,12 @@
 import { Directive, effect, input } from "@angular/core";
 
+export interface MyRepeatContext {
+    readonly $implicit: number;
+    readonly index: number;
+    readonly first: boolean;
+    readonly last: boolean;
+}
+
 @Directive({
     selector: '[myRepeat]'
 })
