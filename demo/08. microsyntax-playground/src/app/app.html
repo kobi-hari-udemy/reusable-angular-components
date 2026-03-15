@@ -15,6 +15,16 @@
   {{i}} - Repeating text value {{ value }}, First: {{ isFirst}}, Last: {{ isLast }}
 </div>
 
-<ng-template [myRepeat]="5" [myRepeatStart]="6" [myRepeatSkip]="2" let-value="value">
-  <div>Repeat me 5 times, this is time number {{ value }}</div>
+<ng-template 
+  [myRepeat]="5" 
+  [myRepeatStart]="6" 
+  [myRepeatSkip]="2" 
+  let-value
+  let-i="index"
+  let-isFirst="first"
+  let-isLast="last"
+  >
+  <div>  
+    {{i}} - Repeating text value {{ value }}, First: {{ isFirst}}, Last: {{ isLast }}
+  </div>
 </ng-template>

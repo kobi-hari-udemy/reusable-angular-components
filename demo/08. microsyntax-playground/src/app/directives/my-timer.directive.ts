@@ -1,7 +1,7 @@
 import { Directive, effect, input } from "@angular/core";
 
 export type TimeState = 'running' | 'done';
-export interface MyTimeContext {
+export interface MyTimerContext {
     readonly value: number;
     readonly state: TimeState;
 }
@@ -24,6 +24,10 @@ export class MyTimer {
                 Step: ${this.myTimerStep()}
             `)
         })
+    }
+
+    static ngTemplateContextGuard(_: MyTimer, ctx: unknown): ctx is MyTimerContext {
+        return true;
     }
 
 }

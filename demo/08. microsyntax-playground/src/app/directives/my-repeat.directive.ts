@@ -26,4 +26,7 @@ export class MyRepeat {
         })
     }
 
+    static ngTemplateContextGuard(_: MyRepeat, ctx: unknown): ctx is MyRepeatContext {
+        return true;
+    }
 }
