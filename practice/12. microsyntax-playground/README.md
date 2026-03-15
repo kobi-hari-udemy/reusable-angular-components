@@ -363,20 +363,20 @@ To support the `as` keyword on `MyTimer`, add a property named `myTimer` to `MyT
 
 ```typescript
 export interface MyTimerContext {
-  readonly myTimer: number;
+  readonly myTimer: Signal<number>;
   readonly value: Signal<number>;
   readonly state: Signal<TimerState>;
 }
 ```
 
-The `myTimer` context property would hold the interval value (the same value as the primary input). Note that this property is a plain `number`, not a signal - it mirrors the input expression's value.
+The `myTimer` context property would hold the interval value (the same value as the primary input). Note that this property is a `Signal<number>`, not a plain `number` - it mirrors the input expression's value.
 
 ### Step 28
 In `app.html`, try using the `as` keyword:
 
 ```html
 <div *myTimer="1000 as interval; from: 10; to: 0; let count = value; let s = state">
-  Interval: {{ interval }}ms, Count: {{ count() }}, State: {{ s() }}
+  Interval: {{ interval() }}ms, Count: {{ count() }}, State: {{ s() }}
 </div>
 ```
 
@@ -387,7 +387,7 @@ Apply the same pattern to `MyRepeat`. Add a `myRepeat` property to `MyRepeatCont
 
 ```typescript
 export interface MyRepeatContext {
-  readonly myRepeat: number;
+  readonly myRepeat: Signal<number>;
   readonly $implicit: Signal<number>;
   readonly index: Signal<number>;
   readonly first: Signal<boolean>;
@@ -400,7 +400,7 @@ Try it in `app.html`:
 ```html
 <ul>
   <li *myRepeat="5 as total; start: 100; skip: -10; let item; let i = index; let isLast = last">
-    {{ item() }} of {{ total }}: Index {{ i() }} {{ isLast() ? '(End of Batch)' : '' }}
+    {{ item() }} of {{ total() }}: Index {{ i() }} {{ isLast() ? '(End of Batch)' : '' }}
   </li>
 </ul>
 ```

@@ -11,4 +11,5 @@ import { MyTimer } from './directives/my-timer.directive';
   styleUrl: './app.scss'
 })
 export class App {
+  readonly times = signal(50);
 }

@@ -4,6 +4,8 @@ export type TimeState = 'running' | 'done';
 export interface MyTimerContext {
     readonly value: Signal<number>;
     readonly state: Signal<TimeState>;
+    readonly myTimer: Signal<number>;
+    readonly myTimerFrom: Signal<number>;
 }
 
 @Directive({
