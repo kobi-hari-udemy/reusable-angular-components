@@ -58,17 +58,17 @@ The goal is simple:
 This mirrors how Angular's built-in `*ngIf` interprets values.
 
 ### Step 6
-Add an `effect` that reacts to `condition()` and delegates the actual DOM work to a `sync()` method.
+Add an `effect` that reacts to `condition()` and delegates the actual DOM work to a `invalidate()` method.
 
 The directive should no longer directly create views in the constructor. Instead, the reactive flow should be:
 
 1. `myIf()` changes
 2. `condition()` recomputes
 3. the `effect` runs
-4. `sync()` updates the `ViewContainerRef`
+4. `invalidate()` updates the `ViewContainerRef`
 
 ### Step 7
-Implement `sync()` so the container always matches the condition.
+Implement `invalidate()` so the container always matches the condition.
 
 The rules are:
 - If the container is empty and the condition is `true`, create one embedded view.
@@ -78,7 +78,7 @@ The rules are:
 This gives the directive the invariant of having either exactly one view or zero views.
 
 ### Step 8
-When creating the embedded view inside `sync()`, keep passing the context object:
+When creating the embedded view inside `invalidate()`, keep passing the context object:
 
 ```typescript
 {

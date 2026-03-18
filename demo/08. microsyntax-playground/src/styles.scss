@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	--color-page-bg: #f3f7fb;
+	--color-surface: #ffffff;
+	--color-surface-muted: #f7fafc;
+	--color-border: #d8e0ea;
+	--color-text: #1f2937;
+	--color-text-muted: #526071;
+	--color-primary: #0f766e;
+	--color-primary-hover: #0b5f59;
+	--color-primary-contrast: #ffffff;
+	--color-success-bg: #ecfdf5;
+	--color-success-border: #99f6e4;
+	--color-success-text: #14532d;
+	--color-shadow-soft: rgba(15, 23, 42, 0.08);
+	--color-shadow-strong: rgba(15, 118, 110, 0.22);
+	--color-shadow-strong-hover: rgba(15, 118, 110, 0.28);
+	--color-shadow-strong-active: rgba(15, 118, 110, 0.2);
+}
+
+body {
+	margin: 0;
+	background: var(--color-page-bg);
+}

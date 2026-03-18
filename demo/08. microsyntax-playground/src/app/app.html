@@ -1,49 +1,21 @@
-<div *myFor="
-  let item of items(); 
-  let i = index;
-  let l = last;
-  trackBy (i, j) => i  
-  ">
-  {{item.x}}  
+<h1>
+  Structural Directives Sample
+</h1>
+<ul>
+<li>Flag Value: {{flag()}}</li>
+<li>Object Value: {{obj() | json}}</li>
+</ul>
+<div class="tools">
+  <button (click)="toggleFlag()">Toggle Flag</button>
+  <button (click)="toggleObj()">Toggle Object</button>
 </div>
 
-<div *ngFor="
-  let item of items(); 
-  let i = index; 
-  let l = last; 
-  trackBy (i, j) => i">
+<div *myIf="flag()" class="content-presenter">
+  The Flag is Shown
 </div>
 
-<div *myIf="value() as ourVal">
-  {{ ourVal }}
+<div *myIf="obj() as item" class="content-presenter">
+  Object Values
+  X: {{item!.x}}
+  Y: {{item!.y}}
 </div>
-
-
-<div *myTimer="times() as interval; from: 10 as startingPoint; to: 0; step: -1; 
-    let count = value; let status = state">
-  Count: {{ count() }} ({{status()}})
-  Interval: {{ interval() }}
-</div>
-
-<div
-  *myRepeat="5 as total; start: 6; skip: 2; 
-    let value; let i = index; 
-    let isFirst = first; let isLast = last"
->
-  {{i()}} (of {{total()}}) - Repeating text value {{ value() }}, First: {{ isFirst()}}, Last: {{ isLast() }}
-</div>
-
-<ng-template 
-  [myRepeat]="5" 
-  [myRepeatStart]="6" 
-  [myRepeatSkip]="2" 
-  let-value
-  let-i="index"
-  let-isFirst="first"
-  let-isLast="last"
-  let-total="myRepeat"
-  >
-  <div>  
-    {{i()}} - Repeating text value {{ value() }}, First: {{ isFirst()}}, Last: {{ isLast() }}
-  </div>
-</ng-template>

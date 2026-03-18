@@ -1,24 +1,23 @@
 import { Component, signal } from '@angular/core';
-import { MyFor } from './directives/my-for.directive';
 import { MyIf } from './directives/my-if.directive';
-import { MyRepeat } from './directives/my-repeat.directive';
-import { MyTimer } from './directives/my-timer.directive';
 import { CommonModule } from '@angular/common';
+import { Point } from './models/point';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, MyFor, MyIf, MyRepeat, MyTimer],
+  imports: [CommonModule, MyIf],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  readonly times = signal(50);
+  readonly flag = signal(true);
+  readonly obj = signal<Point | null>({x: 20, y: 30});
 
-  readonly value = signal<string | null>(null);
+  toggleFlag() {
+    this.flag.update(v => !v);
+  }
 
-  readonly items = signal([
-    {x: 10, y: 20}, 
-    {x: 20, y: 30}, 
-    {x: 50, y: 40}
-  ]);
+  toggleObj() {
+    this.obj.update(v => (!!v) ? null : {x: 20, y: 30});
+  }
 }

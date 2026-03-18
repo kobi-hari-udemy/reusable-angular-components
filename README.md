@@ -67,3 +67,8 @@ In this repository you can find all material for the course
 * Practice 12 - Microsyntax Playground - Building a Custom Structural Directive
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/12.%20microsyntax-playground)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/12.%20microsyntax-playground?title=Microsyntax%20Playground%20-%20Building%20a%20Custom%20Structural%20Directive&file=README.md)
+
+### Section 9 - Custom Structural Directives and View Manipulation
+* Practice 13 - Microsyntax Playground - Build the *myIf* Structural Directive
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/13.%20microsyntax-playground-myif)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/13.%20microsyntax-playground-myif?title=Microsyntax%20Playground%20-%20Build%20the%20*myIf*%20Structural%20Directive&file=README.md) 
