@@ -34,8 +34,21 @@ export class MyTimer {
         }
         this.vcr.createEmbeddedView(this.template, ctx);
 
+        effect((onCleanup) => {
+            const interval = this.myTimer();
+            const from = this.myTimerFrom();
+            const to = this.myTimerTo();
+            const step = this.myTimerStep();
 
-        effect(() => {
+            this.value.set(from);
+
+            const id = setInterval(() => {
+                this.value.update(v => Math.min(v + step, to));
+                if (this.value() >= to) {
+                    clearInterval(id);
+                }
+            }, interval);
+            onCleanup(() => clearInterval(id));
         })
     }
 
