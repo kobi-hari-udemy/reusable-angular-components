@@ -32,7 +32,11 @@ export class App {
   readonly activeViewComponent = computed(() => {
     const found = this.viewOptions.find(v => v.value === this.selectedView());
     return found?.component ?? GridViewComponent
-  })
+  });
+
+  readonly activeViewInputs = computed(() => ({
+    items: this.products()
+  }))
   
 
   readonly products = signal(PRODUCTS);
