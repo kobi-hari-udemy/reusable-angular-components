@@ -1,0 +1,33 @@
+:host {
+  .tab-picker {
+    display: flex;
+    gap: 2px;
+    background: var(--color-border);
+    border-radius: 8px;
+    padding: 2px;
+  }
+
+  .tab-btn {
+    padding: 0.4rem 1rem;
+    border: none;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+
+    &:hover:not(.active) {
+      color: var(--color-text);
+      background: var(--color-hover);
+    }
+
+    &.active {
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

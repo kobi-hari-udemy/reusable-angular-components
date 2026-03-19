@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff8e1"/>
+      <stop offset="100%" stop-color="#ffecb3"/>
+    </linearGradient>
+    <linearGradient id="lens-l" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a237e"/>
+      <stop offset="60%" stop-color="#283593"/>
+      <stop offset="100%" stop-color="#3949ab"/>
+    </linearGradient>
+    <linearGradient id="lens-r" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a237e"/>
+      <stop offset="60%" stop-color="#283593"/>
+      <stop offset="100%" stop-color="#3949ab"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#f57f17" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#bg)"/>
+  <g transform="translate(200,200)" filter="url(#sh)">
+    <!-- Left arm -->
+    <line x1="-100" y1="-5" x2="-60" y2="-5" stroke="#5d4037" stroke-width="5" stroke-linecap="round"/>
+    <!-- Right arm -->
+    <line x1="60" y1="-5" x2="100" y2="-5" stroke="#5d4037" stroke-width="5" stroke-linecap="round"/>
+    <!-- Bridge -->
+    <path d="M-12,-5 Q0,-15 12,-5" fill="none" stroke="#5d4037" stroke-width="5" stroke-linecap="round"/>
+    <!-- Left frame -->
+    <ellipse cx="-36" cy="5" rx="30" ry="26" fill="none" stroke="#5d4037" stroke-width="5"/>
+    <!-- Right frame -->
+    <ellipse cx="36" cy="5" rx="30" ry="26" fill="none" stroke="#5d4037" stroke-width="5"/>
+    <!-- Left lens -->
+    <ellipse cx="-36" cy="5" rx="27" ry="23" fill="url(#lens-l)" opacity="0.8"/>
+    <!-- Right lens -->
+    <ellipse cx="36" cy="5" rx="27" ry="23" fill="url(#lens-r)" opacity="0.8"/>
+    <!-- Left lens reflection -->
+    <ellipse cx="-44" cy="-3" rx="8" ry="10" fill="#5c6bc0" opacity="0.2" transform="rotate(-15,-44,-3)"/>
+    <!-- Right lens reflection -->
+    <ellipse cx="28" cy="-3" rx="8" ry="10" fill="#5c6bc0" opacity="0.2" transform="rotate(-15,28,-3)"/>
+    <!-- Arm hinge dots -->
+    <circle cx="-60" cy="-5" r="3" fill="#795548"/>
+    <circle cx="60" cy="-5" r="3" fill="#795548"/>
+  </g>
+</svg>

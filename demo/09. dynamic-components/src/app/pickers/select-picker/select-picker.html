@@ -1,0 +1,5 @@
+<select class="select-picker" [(ngModel)]="value">
+  @for (opt of options(); track opt.value) {
+    <option [value]="opt.value">{{ opt.label }}</option>
+  }
+</select>

@@ -1,0 +1,13 @@
+<div class="list">
+  @for (product of items(); track product.id) {
+    <div class="list-row" (click)="onItemClick(product)">
+      <img class="thumbnail" [src]="product.imageUrl" [alt]="product.name" />
+      <div class="details">
+        <h3>{{ product.name }}</h3>
+        <span class="category">{{ product.category }}</span>
+        <span class="rating">★ {{ product.rating }}</span>
+      </div>
+      <div class="price">{{ product.price | currency }}</div>
+    </div>
+  }
+</div>

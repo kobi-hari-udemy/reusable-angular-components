@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="lbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffde7"/>
+      <stop offset="100%" stop-color="#fff9c4"/>
+    </linearGradient>
+    <linearGradient id="lshade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdd835"/>
+      <stop offset="100%" stop-color="#f9a825"/>
+    </linearGradient>
+    <radialGradient id="lglow" cx="0.5" cy="1" r="0.8">
+      <stop offset="0%" stop-color="#fff9c4" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#fff9c4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lpole" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#757575"/>
+      <stop offset="100%" stop-color="#616161"/>
+    </linearGradient>
+    <filter id="lshadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#f57f17" flood-opacity="0.15"/>
+    </filter>
+    <filter id="lglowf">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#lbg)"/>
+  <!-- Light glow on surface -->
+  <ellipse cx="200" cy="330" rx="80" ry="20" fill="url(#lglow)" filter="url(#lglowf)" opacity="0.6"/>
+  <g transform="translate(200,200)" filter="url(#lshadow)">
+    <!-- Base -->
+    <ellipse cx="0" cy="75" rx="40" ry="10" fill="#757575"/>
+    <ellipse cx="0" cy="72" rx="40" ry="10" fill="#9e9e9e"/>
+    <ellipse cx="0" cy="72" rx="35" ry="7" fill="#bdbdbd" opacity="0.3"/>
+    <!-- Pole -->
+    <rect x="-4" y="-10" width="8" height="82" rx="3" fill="url(#lpole)"/>
+    <rect x="-2" y="-8" width="3" height="78" rx="1.5" fill="#9e9e9e" opacity="0.4"/>
+    <!-- Joint -->
+    <circle cx="0" cy="30" r="6" fill="#616161"/>
+    <circle cx="0" cy="30" r="4" fill="#757575"/>
+    <circle cx="0" cy="30" r="2" fill="#9e9e9e"/>
+    <!-- Upper arm -->
+    <rect x="-3" y="-60" width="6" height="55" rx="3" fill="url(#lpole)" transform="rotate(-5)"/>
+    <!-- Shade -->
+    <path d="M-45,-55 L-32,-15 L32,-15 L45,-55 Z" fill="url(#lshade)"/>
+    <path d="M-40,-52 L-30,-18 L30,-18 L40,-52 Z" fill="#f9a825" opacity="0.6"/>
+    <path d="M-38,-50 L-36,-45 L10,-45 L15,-50 Z" fill="#ffee58" opacity="0.5"/>
+    <!-- Shade rim -->
+    <line x1="-33" y1="-15" x2="33" y2="-15" stroke="#f57f17" stroke-width="2"/>
+    <!-- Light cone -->
+    <path d="M-30,-15 L-55,60 L55,60 L30,-15 Z" fill="url(#lglow)" opacity="0.3"/>
+    <!-- Bulb -->
+    <ellipse cx="0" cy="-12" rx="8" ry="5" fill="#fff9c4" opacity="0.7"/>
+    <!-- Switch -->
+    <circle cx="3" cy="15" r="3" fill="#424242"/>
+  </g>
+</svg>

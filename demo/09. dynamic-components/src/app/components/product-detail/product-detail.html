@@ -1,0 +1,10 @@
+<div class="sidebar-product">
+  <img [src]="product().imageUrl" [alt]="product().name" />
+  <h2>{{ product().name }}</h2>
+  <div class="meta">
+    <span>{{ product().category }}</span>
+    <span class="rating">&#9733; {{ product().rating }}</span>
+  </div>
+  <p class="price">{{ product().price | currency }}</p>
+  <p class="description">{{ product().description }}</p>
+</div>

@@ -1,0 +1,20 @@
+<div class="catalog">
+  <header class="catalog-header">
+    <h1>Product Catalog</h1>
+    <app-select-picker 
+      [options]="views()"
+      [(value)]="selectedView"
+      />
+  </header>
+  <main class="catalog-content">
+    <ng-container *ngComponentOutlet="activeViewComponent()"/>
+  </main>
+
+  <aside class="catalog-sidebar">
+    @if (selectedProduct(); as product) {
+      <app-product-detail [product]="product" />
+    } @else {
+      <p class="placeholder">Click a product to see details</p>
+    }
+  </aside>
+</div>

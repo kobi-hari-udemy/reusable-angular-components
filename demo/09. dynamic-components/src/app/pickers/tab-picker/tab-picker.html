@@ -1,0 +1,11 @@
+<div class="tab-picker">
+  @for (opt of options(); track opt.value) {
+    <button
+      class="tab-btn"
+      [class.active]="opt.value === value()"
+      (click)="select(opt.value)"
+    >
+      {{ opt.label }}
+    </button>
+  }
+</div>

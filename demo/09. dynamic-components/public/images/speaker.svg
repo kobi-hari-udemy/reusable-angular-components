@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="spbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e3f2fd"/>
+      <stop offset="100%" stop-color="#bbdefb"/>
+    </linearGradient>
+    <linearGradient id="spbody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e88e5"/>
+      <stop offset="100%" stop-color="#1565c0"/>
+    </linearGradient>
+    <radialGradient id="spdriver">
+      <stop offset="0%" stop-color="#1976d2"/>
+      <stop offset="40%" stop-color="#0d47a1"/>
+      <stop offset="60%" stop-color="#1565c0"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </radialGradient>
+    <radialGradient id="spcone">
+      <stop offset="0%" stop-color="#1976d2"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </radialGradient>
+    <filter id="spshadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0d47a1" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#spbg)"/>
+  <g transform="translate(200,200)" filter="url(#spshadow)">
+    <!-- Body -->
+    <rect x="-48" y="-70" width="96" height="140" rx="20" fill="url(#spbody)"/>
+    <rect x="-42" y="-64" width="84" height="128" rx="16" fill="#1976d2" opacity="0.5"/>
+    <!-- Grill lines -->
+    <g opacity="0.12">
+      <line x1="-35" y1="-55" x2="35" y2="-55" stroke="#fff" stroke-width="1"/>
+      <line x1="-35" y1="-48" x2="35" y2="-48" stroke="#fff" stroke-width="1"/>
+      <line x1="-35" y1="-41" x2="35" y2="-41" stroke="#fff" stroke-width="1"/>
+      <line x1="-35" y1="42" x2="35" y2="42" stroke="#fff" stroke-width="1"/>
+      <line x1="-35" y1="49" x2="35" y2="49" stroke="#fff" stroke-width="1"/>
+      <line x1="-35" y1="56" x2="35" y2="56" stroke="#fff" stroke-width="1"/>
+    </g>
+    <!-- Main driver -->
+    <circle cx="0" cy="10" r="32" fill="#0d47a1"/>
+    <circle cx="0" cy="10" r="28" fill="url(#spdriver)"/>
+    <circle cx="0" cy="10" r="24" fill="none" stroke="#1565c0" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="0" cy="10" r="18" fill="none" stroke="#1565c0" stroke-width="1" opacity="0.4"/>
+    <circle cx="0" cy="10" r="12" fill="url(#spcone)"/>
+    <circle cx="0" cy="10" r="8" fill="#1565c0"/>
+    <circle cx="0" cy="10" r="5" fill="#0d47a1"/>
+    <circle cx="0" cy="10" r="3" fill="#1976d2"/>
+    <ellipse cx="-8" cy="2" rx="6" ry="3" fill="#42a5f5" opacity="0.2" transform="rotate(-20)"/>
+    <!-- Tweeter -->
+    <circle cx="0" cy="-32" r="14" fill="#0d47a1"/>
+    <circle cx="0" cy="-32" r="11" fill="#1565c0"/>
+    <circle cx="0" cy="-32" r="8" fill="#0d47a1"/>
+    <circle cx="0" cy="-32" r="5" fill="#1565c0"/>
+    <circle cx="0" cy="-32" r="2.5" fill="#0d47a1"/>
+    <!-- Power LED -->
+    <circle cx="0" cy="52" r="3" fill="#4fc3f7"/>
+    <circle cx="0" cy="52" r="2" fill="#81d4fa" opacity="0.6"/>
+    <!-- Bottom dots -->
+    <circle cx="-15" cy="60" r="2" fill="#42a5f5" opacity="0.3"/>
+    <circle cx="0" cy="60" r="2" fill="#42a5f5" opacity="0.3"/>
+    <circle cx="15" cy="60" r="2" fill="#42a5f5" opacity="0.3"/>
+    <!-- Edge highlights -->
+    <path d="M-48,-50 L-48,50" fill="none" stroke="#42a5f5" stroke-width="1" opacity="0.2"/>
+    <path d="M48,-50 L48,50" fill="none" stroke="#0d47a1" stroke-width="1" opacity="0.2"/>
+  </g>
+</svg>

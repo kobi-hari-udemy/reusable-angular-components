@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="ybg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e5f5"/>
+      <stop offset="100%" stop-color="#e1bee7"/>
+    </linearGradient>
+    <linearGradient id="ymat" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8e24aa"/>
+      <stop offset="100%" stop-color="#7b1fa2"/>
+    </linearGradient>
+    <linearGradient id="yroll" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6a1b9a"/>
+      <stop offset="100%" stop-color="#4a148c"/>
+    </linearGradient>
+    <filter id="yshadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#4a148c" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#ybg)"/>
+  <g transform="translate(200,200) rotate(-8)" filter="url(#yshadow)">
+    <!-- Mat body -->
+    <rect x="-100" y="-18" width="180" height="36" rx="3" fill="url(#ymat)"/>
+    <rect x="-100" y="-18" width="180" height="18" rx="3" fill="#9c27b0" opacity="0.4"/>
+    <!-- Texture lines -->
+    <line x1="-90" y1="-8" x2="70" y2="-8" stroke="#ab47bc" stroke-width="0.8" opacity="0.3"/>
+    <line x1="-90" y1="-2" x2="70" y2="-2" stroke="#ab47bc" stroke-width="0.8" opacity="0.3"/>
+    <line x1="-90" y1="4" x2="70" y2="4" stroke="#ab47bc" stroke-width="0.8" opacity="0.3"/>
+    <line x1="-90" y1="10" x2="70" y2="10" stroke="#ab47bc" stroke-width="0.8" opacity="0.3"/>
+    <!-- Edge highlights -->
+    <line x1="-100" y1="-17" x2="80" y2="-17" stroke="#ce93d8" stroke-width="1" opacity="0.5"/>
+    <line x1="-100" y1="18" x2="80" y2="18" stroke="#6a1b9a" stroke-width="1.5" opacity="0.5"/>
+    <!-- Rolled end -->
+    <ellipse cx="88" cy="0" rx="14" ry="18" fill="url(#yroll)"/>
+    <ellipse cx="88" cy="0" rx="11" ry="15" fill="none" stroke="#6a1b9a" stroke-width="1.5"/>
+    <ellipse cx="88" cy="0" rx="8" ry="12" fill="#7b1fa2"/>
+    <ellipse cx="88" cy="0" rx="8" ry="12" fill="none" stroke="#6a1b9a" stroke-width="1"/>
+    <ellipse cx="88" cy="0" rx="5" ry="8" fill="#6a1b9a"/>
+    <ellipse cx="88" cy="0" rx="5" ry="8" fill="none" stroke="#4a148c" stroke-width="1"/>
+    <ellipse cx="88" cy="0" rx="2.5" ry="4" fill="#4a148c"/>
+    <!-- Roll highlight -->
+    <ellipse cx="85" cy="-8" rx="3" ry="6" fill="#ce93d8" opacity="0.3"/>
+    <!-- Strap -->
+    <path d="M-40,-20 Q-40,-30 -30,-30 L30,-30 Q40,-30 40,-20" fill="none" stroke="#6a1b9a" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <rect x="-5" y="-33" width="10" height="6" rx="2" fill="#9c27b0" opacity="0.7"/>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f5e9"/>
+      <stop offset="100%" stop-color="#c8e6c9"/>
+    </linearGradient>
+    <linearGradient id="pot" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d84315"/>
+      <stop offset="50%" stop-color="#e64a19"/>
+      <stop offset="100%" stop-color="#bf360c"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1b5e20" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#bg)"/>
+  <g transform="translate(200,210)" filter="url(#sh)">
+    <!-- Soil -->
+    <ellipse cx="0" cy="15" rx="40" ry="8" fill="#4e342e"/>
+    <!-- Pot -->
+    <path d="M-42,15 L-35,70 L35,70 L42,15 Z" fill="url(#pot)"/>
+    <!-- Pot rim -->
+    <rect x="-46" y="10" width="92" height="12" rx="4" fill="#e64a19"/>
+    <rect x="-44" y="12" width="88" height="4" rx="2" fill="#ff6e40" opacity="0.3"/>
+    <!-- Pot bottom -->
+    <rect x="-30" y="68" width="60" height="6" rx="3" fill="#bf360c"/>
+    <!-- Stems -->
+    <path d="M0,15 L0,-40" stroke="#388e3c" stroke-width="4" stroke-linecap="round"/>
+    <path d="M0,-10 L-20,-50" stroke="#388e3c" stroke-width="3" stroke-linecap="round"/>
+    <path d="M0,-5 L22,-42" stroke="#388e3c" stroke-width="3" stroke-linecap="round"/>
+    <!-- Center leaf (large, up) -->
+    <ellipse cx="0" cy="-65" rx="14" ry="28" fill="#43a047"/>
+    <line x1="0" y1="-45" x2="0" y2="-85" stroke="#2e7d32" stroke-width="1.5"/>
+    <!-- Left leaf -->
+    <ellipse cx="-28" cy="-62" rx="12" ry="22" fill="#66bb6a" transform="rotate(25,-28,-62)"/>
+    <line x1="-22" y1="-48" x2="-34" y2="-76" stroke="#388e3c" stroke-width="1"/>
+    <!-- Right leaf -->
+    <ellipse cx="30" cy="-56" rx="12" ry="22" fill="#66bb6a" transform="rotate(-20,30,-56)"/>
+    <line x1="24" y1="-42" x2="36" y2="-70" stroke="#388e3c" stroke-width="1"/>
+    <!-- Small left leaf -->
+    <ellipse cx="-14" cy="-35" rx="9" ry="16" fill="#81c784" transform="rotate(40,-14,-35)"/>
+    <!-- Small right leaf -->
+    <ellipse cx="16" cy="-30" rx="9" ry="16" fill="#81c784" transform="rotate(-35,16,-30)"/>
+  </g>
+</svg>

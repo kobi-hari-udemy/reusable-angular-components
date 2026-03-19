@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8eaf6"/>
+      <stop offset="100%" stop-color="#c5cae9"/>
+    </linearGradient>
+    <linearGradient id="canopy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e53935"/>
+      <stop offset="100%" stop-color="#c62828"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#1a237e" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#bg)"/>
+  <g transform="translate(200,200)" filter="url(#sh)">
+    <!-- Shaft -->
+    <line x1="0" y1="-40" x2="0" y2="80" stroke="#5d4037" stroke-width="5" stroke-linecap="round"/>
+    <!-- Handle (J-hook) -->
+    <path d="M0,80 Q0,105 -20,105" fill="none" stroke="#5d4037" stroke-width="5" stroke-linecap="round"/>
+    <!-- Canopy -->
+    <path d="M-90,-40 Q-90,-110 0,-110 Q90,-110 90,-40 Z" fill="url(#canopy)"/>
+    <!-- Canopy tip -->
+    <circle cx="0" cy="-112" r="4" fill="#b71c1c"/>
+    <!-- Canopy segments -->
+    <path d="M0,-110 L-30,-40" stroke="#c62828" stroke-width="1.5" opacity="0.4"/>
+    <path d="M0,-110 L30,-40" stroke="#c62828" stroke-width="1.5" opacity="0.4"/>
+    <path d="M0,-110 L-60,-40" stroke="#c62828" stroke-width="1.5" opacity="0.4"/>
+    <path d="M0,-110 L60,-40" stroke="#c62828" stroke-width="1.5" opacity="0.4"/>
+    <path d="M0,-110 L0,-40" stroke="#c62828" stroke-width="1.5" opacity="0.4"/>
+    <!-- Canopy edge scallops -->
+    <path d="M-90,-40 Q-75,-52 -60,-40 Q-45,-52 -30,-40 Q-15,-52 0,-40 Q15,-52 30,-40 Q45,-52 60,-40 Q75,-52 90,-40" fill="none" stroke="#d32f2f" stroke-width="2"/>
+    <!-- Canopy highlight -->
+    <path d="M-50,-100 Q-30,-85 -20,-55" fill="none" stroke="#ef5350" stroke-width="3" opacity="0.3" stroke-linecap="round"/>
+    <!-- Rain drops (decorative) -->
+    <g fill="#7986cb" opacity="0.4">
+      <ellipse cx="-55" cy="20" rx="2" ry="4"/>
+      <ellipse cx="60" cy="5" rx="2" ry="4"/>
+      <ellipse cx="-30" cy="40" rx="2" ry="4"/>
+      <ellipse cx="40" cy="50" rx="2" ry="4"/>
+      <ellipse cx="75" cy="35" rx="2" ry="4"/>
+    </g>
+  </g>
+</svg>

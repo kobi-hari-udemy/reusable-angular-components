@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f3e5f5"/>
+      <stop offset="100%" stop-color="#e1bee7"/>
+    </linearGradient>
+    <linearGradient id="kb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#424242"/>
+      <stop offset="100%" stop-color="#212121"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#4a148c" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#bg)"/>
+  <g transform="translate(200,200)" filter="url(#sh)">
+    <!-- Keyboard case -->
+    <rect x="-120" y="-50" width="240" height="100" rx="10" fill="url(#kb)"/>
+    <rect x="-115" y="-45" width="230" height="90" rx="7" fill="#333"/>
+    <!-- Key rows -->
+    <!-- Row 1 -->
+    <g fill="#555">
+      <rect x="-105" y="-38" width="15" height="13" rx="2"/>
+      <rect x="-87" y="-38" width="15" height="13" rx="2"/>
+      <rect x="-69" y="-38" width="15" height="13" rx="2"/>
+      <rect x="-51" y="-38" width="15" height="13" rx="2"/>
+      <rect x="-33" y="-38" width="15" height="13" rx="2"/>
+      <rect x="-15" y="-38" width="15" height="13" rx="2"/>
+      <rect x="3" y="-38" width="15" height="13" rx="2"/>
+      <rect x="21" y="-38" width="15" height="13" rx="2"/>
+      <rect x="39" y="-38" width="15" height="13" rx="2"/>
+      <rect x="57" y="-38" width="15" height="13" rx="2"/>
+      <rect x="75" y="-38" width="15" height="13" rx="2"/>
+      <rect x="93" y="-38" width="15" height="13" rx="2"/>
+    </g>
+    <!-- Row 2 -->
+    <g fill="#4a4a4a">
+      <rect x="-105" y="-22" width="20" height="13" rx="2"/>
+      <rect x="-82" y="-22" width="15" height="13" rx="2"/>
+      <rect x="-64" y="-22" width="15" height="13" rx="2"/>
+      <rect x="-46" y="-22" width="15" height="13" rx="2"/>
+      <rect x="-28" y="-22" width="15" height="13" rx="2"/>
+      <rect x="-10" y="-22" width="15" height="13" rx="2"/>
+      <rect x="8" y="-22" width="15" height="13" rx="2"/>
+      <rect x="26" y="-22" width="15" height="13" rx="2"/>
+      <rect x="44" y="-22" width="15" height="13" rx="2"/>
+      <rect x="62" y="-22" width="15" height="13" rx="2"/>
+      <rect x="80" y="-22" width="28" height="13" rx="2"/>
+    </g>
+    <!-- Row 3 -->
+    <g fill="#555">
+      <rect x="-105" y="-6" width="25" height="13" rx="2"/>
+      <rect x="-77" y="-6" width="15" height="13" rx="2"/>
+      <rect x="-59" y="-6" width="15" height="13" rx="2"/>
+      <rect x="-41" y="-6" width="15" height="13" rx="2"/>
+      <rect x="-23" y="-6" width="15" height="13" rx="2"/>
+      <rect x="-5" y="-6" width="15" height="13" rx="2"/>
+      <rect x="13" y="-6" width="15" height="13" rx="2"/>
+      <rect x="31" y="-6" width="15" height="13" rx="2"/>
+      <rect x="49" y="-6" width="15" height="13" rx="2"/>
+      <rect x="67" y="-6" width="41" height="13" rx="2"/>
+    </g>
+    <!-- Row 4 - spacebar row -->
+    <g fill="#4a4a4a">
+      <rect x="-105" y="10" width="20" height="13" rx="2"/>
+      <rect x="-82" y="10" width="15" height="13" rx="2"/>
+      <rect x="-64" y="10" width="15" height="13" rx="2"/>
+      <!-- Spacebar -->
+      <rect x="-46" y="10" width="90" height="13" rx="2" fill="#666"/>
+      <rect x="47" y="10" width="15" height="13" rx="2"/>
+      <rect x="65" y="10" width="15" height="13" rx="2"/>
+      <rect x="83" y="10" width="25" height="13" rx="2"/>
+    </g>
+    <!-- Accent keys (WASD highlight) -->
+    <rect x="-64" y="-22" width="15" height="13" rx="2" fill="#7b1fa2" opacity="0.5"/>
+    <rect x="-82" y="-6" width="15" height="13" rx="2" fill="#7b1fa2" opacity="0.5"/>  
+    <rect x="-59" y="-6" width="15" height="13" rx="2" fill="#7b1fa2" opacity="0.5"/>
+    <rect x="-41" y="-6" width="15" height="13" rx="2" fill="#7b1fa2" opacity="0.5"/>
+    <!-- Escape key highlight -->
+    <rect x="-105" y="-38" width="15" height="13" rx="2" fill="#e53935" opacity="0.6"/>
+    <!-- LED strip -->
+    <line x1="-110" y1="32" x2="110" y2="32" stroke="#7c4dff" stroke-width="2" opacity="0.5"/>
+  </g>
+</svg>

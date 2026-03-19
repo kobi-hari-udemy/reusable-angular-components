@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="mbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eceff1"/>
+      <stop offset="100%" stop-color="#cfd8dc"/>
+    </linearGradient>
+    <linearGradient id="mbody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#607d8b"/>
+      <stop offset="100%" stop-color="#455a64"/>
+    </linearGradient>
+    <linearGradient id="mlid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#546e7a"/>
+      <stop offset="100%" stop-color="#37474f"/>
+    </linearGradient>
+    <filter id="mshadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#263238" flood-opacity="0.2"/>
+    </filter>
+    <filter id="msteam">
+      <feGaussianBlur stdDeviation="2.5"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#mbg)"/>
+  <g transform="translate(195,205)" filter="url(#mshadow)">
+    <!-- Mug body -->
+    <path d="M-35,65 L-40,-25 Q-40,-40 -25,-40 L25,-40 Q40,-40 40,-25 L35,65 Z" fill="url(#mbody)"/>
+    <!-- Body highlight -->
+    <path d="M-35,60 L-38,-22 Q-38,-35 -25,-36 L-20,-36 L-22,60 Z" fill="#78909c" opacity="0.3"/>
+    <!-- Lid -->
+    <path d="M-32,-42 Q-32,-52 -20,-52 L20,-52 Q32,-52 32,-42 Z" fill="url(#mlid)"/>
+    <rect x="-30" y="-48" width="60" height="8" rx="4" fill="#455a64"/>
+    <line x1="-32" y1="-42" x2="32" y2="-42" stroke="#37474f" stroke-width="2"/>
+    <!-- Lid knob -->
+    <rect x="-8" y="-58" width="16" height="8" rx="4" fill="#37474f"/>
+    <ellipse cx="0" cy="-58" rx="6" ry="3" fill="#546e7a"/>
+    <!-- Slide opening -->
+    <rect x="8" y="-50" width="14" height="5" rx="2.5" fill="#263238"/>
+    <!-- Grip band -->
+    <rect x="-38" y="5" width="76" height="22" rx="3" fill="#455a64" opacity="0.5"/>
+    <!-- Grip texture -->
+    <line x1="-32" y1="10" x2="-32" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="-24" y1="10" x2="-24" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="-16" y1="10" x2="-16" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="-8" y1="10" x2="-8" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="0" y1="10" x2="0" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="8" y1="10" x2="8" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="16" y1="10" x2="16" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="24" y1="10" x2="24" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <line x1="32" y1="10" x2="32" y2="22" stroke="#546e7a" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+    <!-- Handle -->
+    <path d="M40,-10 Q62,-10 62,18 Q62,45 40,45" fill="none" stroke="#546e7a" stroke-width="10" stroke-linecap="round"/>
+    <path d="M40,-4 Q54,-4 54,18 Q54,39 40,39" fill="none" stroke="#607d8b" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
+    <!-- Bottom -->
+    <ellipse cx="0" cy="65" rx="35" ry="4" fill="#37474f" opacity="0.5"/>
+    <!-- Steam -->
+    <g filter="url(#msteam)" opacity="0.35">
+      <path d="M-12,-62 Q-16,-78 -10,-92 Q-6,-102 -12,-112" fill="none" stroke="#90a4ae" stroke-width="3" stroke-linecap="round"/>
+      <path d="M2,-64 Q6,-82 0,-96 Q-4,-106 2,-116" fill="none" stroke="#90a4ae" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-4,-63 Q-2,-75 -6,-88" fill="none" stroke="#90a4ae" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

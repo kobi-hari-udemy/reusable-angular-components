@@ -1,0 +1,49 @@
+:host {
+  .catalog {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      'header header'
+      'content sidebar';
+    min-height: 0;
+    height: 100vh;
+  }
+
+  .catalog-header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, var(--color-header-start) 0%, var(--color-header-mid) 50%, var(--color-header-end) 100%);
+    border-bottom: 1px solid var(--color-border);
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+
+  .catalog-content {
+    grid-area: content;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  .catalog-sidebar {
+    grid-area: sidebar;
+    border-left: 1px solid var(--color-border);
+    padding: 1.5rem;
+    background: var(--color-surface);
+    overflow-y: auto;
+
+  }
+
+  .placeholder {
+    color: var(--color-text-placeholder);
+    text-align: center;
+    font-style: italic;
+    padding: 2rem 0;
+  }
+}

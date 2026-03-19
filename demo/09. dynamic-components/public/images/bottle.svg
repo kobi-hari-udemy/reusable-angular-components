@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e1f5fe"/>
+      <stop offset="100%" stop-color="#b3e5fc"/>
+    </linearGradient>
+    <linearGradient id="btl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0288d1"/>
+      <stop offset="50%" stop-color="#03a9f4"/>
+      <stop offset="100%" stop-color="#0288d1"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#01579b" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="400" height="400" rx="16" fill="url(#bg)"/>
+  <g transform="translate(200,200)" filter="url(#sh)">
+    <!-- Cap -->
+    <rect x="-20" y="-120" width="40" height="18" rx="6" fill="#0277bd"/>
+    <rect x="-16" y="-118" width="32" height="6" rx="3" fill="#039be5" opacity="0.5"/>
+    <!-- Neck -->
+    <rect x="-15" y="-105" width="30" height="20" rx="3" fill="#01579b"/>
+    <!-- Shoulder -->
+    <path d="M-15,-85 L-35,-70 L-35,80 L35,80 L35,-70 L15,-85 Z" fill="url(#btl)"/>
+    <!-- Body highlight -->
+    <path d="M-15,-85 L-10,-85 L-10,-70 L-30,-55 L-30,80 L-35,80 L-35,-70 Z" fill="#039be5" opacity="0.3"/>
+    <!-- Body shadow -->
+    <path d="M15,-85 L10,-85 L10,-70 L30,-55 L30,80 L35,80 L35,-70 Z" fill="#0277bd" opacity="0.3"/>
+    <!-- Bottom -->
+    <rect x="-35" y="75" width="70" height="10" rx="5" fill="#0277bd"/>
+    <!-- Water level line -->
+    <path d="M-32,10 Q-16,18 0,10 Q16,2 32,10" fill="none" stroke="#e1f5fe" stroke-width="1.5" opacity="0.5"/>
+    <path d="M-32,25 Q-16,33 0,25 Q16,17 32,25" fill="none" stroke="#e1f5fe" stroke-width="1.5" opacity="0.4"/>
+    <!-- Label band -->
+    <rect x="-35" y="-15" width="70" height="22" rx="0" fill="#01579b" opacity="0.4"/>
+    <line x1="-25" y1="-5" x2="25" y2="-5" stroke="#b3e5fc" stroke-width="1.5" opacity="0.5"/>
+    <line x1="-20" y1="1" x2="20" y2="1" stroke="#b3e5fc" stroke-width="1" opacity="0.4"/>
+  </g>
+</svg>
