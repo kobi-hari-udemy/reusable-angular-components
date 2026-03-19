@@ -9,6 +9,6 @@ import { SelectOption } from '../../models/select-option.model';
   styleUrl: './select-picker.scss',
 })
 export class SelectPickerComponent {
-  options = input.required<SelectOption[]>();
-  value = model.required<string>();
+  readonly options = input.required<SelectOption[]>();
+  readonly value = model.required<string>();
 }

@@ -7,8 +7,8 @@ import { SelectOption } from '../../models/select-option.model';
   styleUrl: './tab-picker.scss',
 })
 export class TabPickerComponent {
-  options = input.required<SelectOption[]>();
-  value = model.required<string>();
+  readonly options = input.required<SelectOption[]>();
+  readonly value = model.required<string>();
 
   select(val: string) {
     this.value.set(val);

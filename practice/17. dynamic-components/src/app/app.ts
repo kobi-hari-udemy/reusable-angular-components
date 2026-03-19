@@ -8,13 +8,10 @@ import { CommonModule } from '@angular/common';
 import { Product } from './models/product.model';
 import { PRODUCTS } from './data/products.data';
 import { VIEW_OPTIONS } from './tokens/view-option.model';
-import { CardsViewComponent } from "./views/cards-view/cards-view";
 import { ProductDetailComponent } from './components/product-detail/product-detail';
 import { SelectOption } from './models/select-option.model';
 import { SelectPickerComponent } from "./pickers/select-picker/select-picker";
-import { GridViewComponent } from './views/grid-view/grid-view';
 import { ListViewComponent } from './views/list-view/list-view';
-import { TabPickerComponent } from './pickers/tab-picker/tab-picker';
 
 @Component({
   selector: 'app-root',
