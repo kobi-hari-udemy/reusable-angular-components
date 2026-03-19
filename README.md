@@ -78,3 +78,6 @@ In this repository you can find all material for the course
 * Practice 15 - Microsyntax Playground - Build the *myRepeat* Structural Directive
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/15.%20microsyntax-playground-myrepeat)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/15.%20microsyntax-playground-myrepeat?title=Microsyntax%20Playground%20-%20Build%20the%20*myRepeat*%20Structural%20Directive&file=README.md)
+* Practice 16 - Microsyntax Playground - Building a Locale-Aware Calendar Directive
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/16.%20microsyntax-playground-withlocale)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/16.%20microsyntax-playground-withlocale?title=Microsyntax%20Playground%20-%20Building%20a%20Locale-Aware%20Calendar%20Directive&file=README.md)

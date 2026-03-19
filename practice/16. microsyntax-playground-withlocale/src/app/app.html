@@ -7,8 +7,7 @@
 
     <select
       id="locale-select"
-      [value]="selectedLocale()"
-      (change)="selectedLocale.set($any($event.target).value)"
+      [(ngModel)]="selectedLocale"
     >
       @for (locale of locales(); track locale) {
         <option [value]="locale">{{ locale }}</option>
