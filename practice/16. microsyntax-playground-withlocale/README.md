@@ -1,226 +1,182 @@
-# Practice 15 - Microsyntax Playground (`myRepeat`)
+# Practice 16 - Microsyntax Playground (`withDateLocale`)
 
-In this exercise we will take the custom `*myRepeat` directive from the microsyntax playground and turn it into a real structural directive that can stamp out a dynamic number of embedded views. We will start by wiring the directive up to `TemplateRef` and `ViewContainerRef`, then we will make the incremental DOM updates incremental while building a signal-based context for each repeated view.
+In this exercise we will create a custom `*withDateLocale` structural directive that wraps its host element in a child injector providing a specific date locale. This lets us dynamically switch the locale used by Angular Material's `mat-calendar` without rebuilding the entire component tree manually. We will start by defining the directive API, then wire it up to `TemplateRef` and `ViewContainerRef`, and finally build the child injector that supplies `MAT_DATE_LOCALE` and the native date adapter.
 
-The starting project already contains a `MyRepeat` directive with these inputs:
-- `myRepeat` for the number of views to render.
-- `myRepeatStart` for the first numeric value exposed to the template.
-- `myRepeatSkip` for the amount added between repeated values.
+The starting project already contains:
+- An `App` component with a `selectedLocale` signal and a list of available locales.
+- A template that renders a locale `<select>` and a `<mat-calendar />`.
 
 The application template uses the directive like this:
 
 ```html
-<li class="content-presenter" 
-	*myRepeat="
-	  count() as c;
-	  start: start();
-	  skip: skip();
-	  let v;
-	  let i = index;
-	  let f = first;
-	  let l = last
-	"
-	[class.first]="f()" [class.last]="l()">
-	<span class="index">{{i()}}</span>
-	<span class="seperator">/</span>
-	<span class="count">{{c()}}</span>
-	<span class="value-label">Value</span>
-	<span class="value">{{v()}}</span>
-</li>
+<mat-calendar *withDateLocale="selectedLocale()" />
 ```
 
-Right now the directive has the inputs and the template context type, but it does not inject the template, it does not manage any embedded views, and it does not provide the live context values that the template expects.
+Right now the calendar renders without any locale awareness. The directive does not exist yet. We will build it step by step.
 
 ---
 
-## Phase 1 - Wiring Up the Structural Directive
+## Phase 1 - Defining the Directive API
 
-In this phase we set up the directive so Angular gives us the tools needed to render repeated views. The directive will not contain the full repeat logic yet, but it should already have the right structural shape.
+In this phase we define the overall syntax and the public API of the directive. Because the microsyntax `*withDateLocale="selectedLocale()"` desugars into a single binding, the directive needs exactly one required input whose name matches the selector. There is no template context needed here — the directive does not expose any variables to the host template.
 
 ### Step 1
-Open `src/app/directives/my-repeat.directive.ts` and inject both `ViewContainerRef` and `TemplateRef<MyRepeatContext>` into the directive.
+Create a new file `src/app/directives/with-date-locale.directive.ts` and scaffold a directive class called `WithDateLocale`.
 
-You should end up with access to:
-- The template that belongs to `*myRepeat`
-- The container that will hold the embedded views created from that template
+Use the selector `[withDateLocale]` so it activates as an attribute structural directive.
 
 ### Step 2
-Create a private method called `invalidate()`.
+Add a required signal input called `withDateLocale` of type `string`.
 
-This method will become the single place where the directive makes sure the rendered views match the current values of the inputs.
+```typescript
+readonly withDateLocale = input.required<string>();
+```
 
-### Step 3
-Inside the constructor, create an `effect` that calls `invalidate()`.
+This input will receive the locale string from the microsyntax binding. Because the input name matches the selector, the desugared `[withDateLocale]="selectedLocale()"` binding connects automatically.
 
-At this stage the important idea is not the DOM logic yet. The important idea is the reactive flow:
-
-1. One of the inputs changes
-2. The effect reruns
-3. `invalidate()` brings the rendered views back in sync
-
-Because `invalidate()` will eventually read the directive inputs, the effect will rerun whenever those inputs change.
+Notice that unlike `*myRepeat` or `*myTimer`, there is no context type to define. The directive does not expose any `let` variables - it only controls which injector the host element sees.
 
 ---
 
-## Phase 2 - Removing Excess Views 
+## Phase 2 - Injecting the Structural Directive Primitives
 
-In this phase we begin implementing `invalidate()`. The main design goal is to minimize changes to the DOM. We do not want to clear the entire container and recreate every view on each update because that would throw away existing DOM nodes and embedded view instances unnecessarily.
+In this phase we inject the two building blocks every structural directive needs: the template and the view container.
 
-Instead, we want to keep any views that are still valid, remove only the extra views when the count goes down, and add only the missing views when the count goes up. This works well because each view context is built out of signals, so the existing views can react to updated inputs automatically without needing to be recreated.
-
-We will start with the removal logic.
-
-### Step 4
-Inside `invalidate()`, read the current repeat count into a local variable:
+### Step 3
+Inject `TemplateRef` and `ViewContainerRef` into the directive.
 
 ```typescript
-const count = this.myRepeat();
+private readonly template = inject(TemplateRef);
+private readonly vcr = inject(ViewContainerRef);
 ```
 
-This makes the desired number of rendered views explicit.
+You should end up with access to:
+- The template that belongs to `*withDateLocale` (the `<mat-calendar>` element)
+- The container where that template will be rendered
+
+---
+
+## Phase 3 - Reacting to Locale Changes
+
+In this phase we set up the reactive flow. Whenever the locale input changes, the directive should re-render the embedded view with a fresh injector. We use the same `effect` + `invalidate` pattern we have seen in previous directives.
+
+### Step 4
+Create a private method called `invalidate()`.
+
+This method will become the single place where the directive tears down the previous view and creates a new one with the updated locale.
 
 ### Step 5
-Add a loop that removes views from the end of the container while the container has more views than `count`.
-
-The logic should follow this shape:
+Inside the constructor, create an `effect` that calls `invalidate()`.
 
 ```typescript
-while (this.vcr.length > count) {
-	this.vcr.remove(this.vcr.length - 1);
+constructor() {
+  effect(() => {
+    this.invalidate();
+  });
 }
 ```
 
-Removing from the end is important because the existing views do not move. The views at lower indexes remain where they are, and only the excess tail of the repeated output is discarded.
+Because `invalidate()` will read `this.withDateLocale()`, the effect will rerun whenever the selected locale changes.
+
+---
+
+## Phase 4 - Building the Child Injector
+
+In this phase we implement `invalidate()`. The key idea is that `MAT_DATE_LOCALE` and the native date adapter are provided through dependency injection. To change the locale at runtime, we need to create a new child injector that supplies these providers with the updated locale value, and then pass that injector to the embedded view.
 
 ### Step 6
-Pause and verify the invariant you are building toward:
-- If the count decreases, only the extra trailing views should be removed.
-- If the count stays the same, existing views should remain in place.
-- If the count later increases, we will add only the missing views rather than rebuilding the whole list.
+Inject `Injector` into the directive.
 
-This is the core reason the implementation uses `invalidate()` rather than `clear()` plus full recreation.
+```typescript
+private readonly injector = inject(Injector);
+```
 
----
-
-## Phase 3 - Building a Signal-Based Context for New Views
-
-In this phase we add the logic for missing views. Every new view needs a context object that exposes the values used by the microsyntax: the implicit value, the index, the first and last flags, and the repeat count.
-
-The important detail is that almost all of these values should be computed signals. They are derived from other signals and should stay reactive automatically.
+We need the current injector so we can create a child injector that inherits all existing providers and adds the locale-specific ones on top.
 
 ### Step 7
-Still inside `invalidate()`, add a second loop that runs while the container has fewer views than `count`.
+Inside `invalidate()`, read the current locale from the input:
 
-This loop is responsible for preparing one new context object per missing view.
+```typescript
+const locale = this.withDateLocale();
+```
 
 ### Step 8
-Inside that loop, create an `index` signal based on the current container length:
+Create a child injector using `Injector.create(...)` with two providers:
+1. The full set of providers returned by `provideNativeDateAdapter()` — this registers the date adapter, date formats, and related services.
+2. A value provider for `MAT_DATE_LOCALE` set to the current locale string.
 
 ```typescript
-const index = signal(this.vcr.length).asReadonly();
-```
-
-Even though `index` is a signal, it never actually changes after creation. That is intentional. A repeated view keeps its position because this directive does not reorder or move existing views. It only removes trailing views or appends new ones.
-
-### Step 9
-Create computed signals for `first` and `last`.
-
-The rules are:
-- `first` is `true` when `index()` is `0`
-- `last` is `true` when `index()` is `this.myRepeat() - 1`
-
-For example:
-
-```typescript
-const first = computed(() => index() === 0);
-const last = computed(() => index() === (this.myRepeat() - 1));
-```
-
-Notice that `last` depends on `this.myRepeat()`. That means existing views can react when the repeat count changes, even if the view itself is preserved.
-
-### Step 10
-Expose the `myRepeat` input itself through the template context by reusing the input signal:
-
-```typescript
-const myRepeat = this.myRepeat;
-```
-
-This lets the template read the current count reactively through the `as c` syntax.
-
-### Step 11
-Create the implicit repeated value as a computed signal:
-
-```typescript
-const value = computed(() => this.myRepeatStart() + index() * this.myRepeatSkip());
-```
-
-This is the number each repeated view should expose as `$implicit`.
-
-Notice what this means conceptually:
-- `index` identifies which repeated view this is
-- `myRepeatStart()` provides the initial value
-- `myRepeatSkip()` provides the spacing between values
-- `value` is derived state and updates automatically when start or skip change
-
-### Step 12
-At this point you should have all the context pieces needed for a new view:
-- `$implicit`
-- `index`
-- `first`
-- `last`
-- `myRepeat`
-
-All of them should be signals, and all except `index` should be computed or forwarded from existing signals.
-
----
-
-## Phase 4 - Creating the Missing Embedded Views
-
-In this phase we use the context built in the previous phase to actually stamp out the missing views.
-
-### Step 13
-Inside the same `while (this.vcr.length < count)` loop, call `createEmbeddedView(...)` with the injected template and the constructed context object.
-
-The shape should be:
-
-```typescript
-this.vcr.createEmbeddedView(this.template, {
-	$implicit: value,
-	index,
-	first,
-	last,
-	myRepeat
+const viewInjector = Injector.create({
+  parent: this.injector,
+  providers: [
+    ...provideNativeDateAdapter(),
+    {
+      provide: MAT_DATE_LOCALE,
+      useValue: locale
+    }
+  ]
 });
 ```
 
-This creates exactly one new repeated view for each pass through the loop.
+By setting `parent` to the directive's own injector, the child injector inherits everything the rest of the application provides but overrides the locale and adapter with fresh instances.
 
-### Step 14
-Verify the full runtime behavior in the app:
-- Increasing `Count` should append only the missing views.
-- Decreasing `Count` should remove only the extra trailing views.
-- Changing `Start` should update the values shown in the existing views.
-- Changing `Skip` should recompute the repeated values without rebuilding the whole list.
-- The first and last CSS classes should move correctly as the count changes.
+---
 
-### Step 15
+## Phase 5 - Creating the Embedded View
+
+In this phase we use the child injector to stamp out the embedded view.
+
+### Step 9
+Before creating a new view, clear the container to remove the previous one:
+
+```typescript
+this.vcr.clear();
+```
+
+Unlike `*myRepeat`, this directive always renders exactly one view. Clearing ensures we do not accumulate stale views when the locale changes.
+
+### Step 10
+Create the embedded view from the template and pass the child injector:
+
+```typescript
+this.vcr.createEmbeddedView(this.template, undefined, {
+  injector: viewInjector
+});
+```
+
+The second argument is `undefined` because there is no template context - the directive does not expose any `let` variables. The third argument passes the `viewInjector` so the `mat-calendar` inside the template resolves `MAT_DATE_LOCALE` from the child injector rather than the root.
+
+---
+
+## Phase 6 - Testing the Directive
+
+### Step 11
+Import `WithDateLocale` into the `App` component and add the structural directive to the `<mat-calendar>` element:
+
+```html
+<mat-calendar *withDateLocale="selectedLocale()" />
+```
+
+### Step 12
+Serve the application and verify the runtime behavior:
+- The calendar renders with the default locale (`fr-FR`).
+- Changing the locale dropdown updates the calendar headers, day names, and month names to match the selected locale.
+- Switching between LTR and RTL locales (for example `en-US` → `he-IL` → `ar-EG`) correctly reflects the writing direction inside the calendar.
+- No errors appear in the console during locale switches.
+
+### Step 13
 Take note of the design pattern here:
-- `ViewContainerRef` owns the repeated embedded views
-- `invalidate()` keeps the number of views correct
-- Each embedded view gets a context made of signals
-- Existing views stay alive and update themselves reactively through those signals
-
-That combination is what makes the directive efficient and predictable.
+- The directive does not know or care what it wraps. It works with any template.
+- The child injector overrides only the locale-related providers while inheriting everything else from the parent.
+- Because the effect calls `invalidate()`, every locale change destroys the old view and creates a new one with a fresh injector. This guarantees the `mat-calendar` re-initializes with the correct locale rather than trying to patch an existing one.
 
 ---
 
 ## Expected Result
 
 By the end of the exercise:
-- `MyRepeat` injects `TemplateRef` and `ViewContainerRef`.
-- An `effect` calls `invalidate()` whenever the directive inputs change.
-- `invalidate()` removes only excessive trailing views instead of clearing the whole container.
-- Missing views are added one at a time with a signal-based template context.
-- `index` is stable per view because existing views never move.
-- `$implicit`, `first`, `last`, and `myRepeat` remain reactive through signals.
-- The repeated output updates correctly when the count, start, or skip values change.
+- `WithDateLocale` is a standalone structural directive with a single required `string` input.
+- It injects `TemplateRef`, `ViewContainerRef`, and `Injector`.
+- An `effect` calls `invalidate()` whenever the locale input changes.
+- `invalidate()` clears the container, builds a child injector with `provideNativeDateAdapter()` and `MAT_DATE_LOCALE`, and creates a fresh embedded view with that injector.
+- The `mat-calendar` inside the template picks up the new locale on every change.
