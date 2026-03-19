@@ -11,9 +11,11 @@ import { VIEW_ACTIONS } from '../../tokens/view-actions.token';
 })
 export class ListViewComponent {
   readonly items = input.required<Product[]>();
+  readonly viewActions = inject(VIEW_ACTIONS, { optional: true });
   readonly selection = output<Product>();
 
   onItemClick(product: Product) {
     this.selection.emit(product);
+    this.viewActions?.onItemSelect(product);
   }
 }
