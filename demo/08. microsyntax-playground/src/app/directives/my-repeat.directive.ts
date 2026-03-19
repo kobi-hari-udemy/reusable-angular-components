@@ -1,4 +1,4 @@
-import { Directive, effect, input, Signal } from "@angular/core";
+import { Directive, effect, inject, input, Signal, TemplateRef, ViewContainerRef } from "@angular/core";
 
 export interface MyRepeatContext {
     readonly $implicit: Signal<number>;
@@ -18,8 +18,25 @@ export class MyRepeat {
 
     readonly myRepeatSkip = input(1);
 
+    readonly vcr = inject(ViewContainerRef);
+    readonly template = inject<TemplateRef<MyRepeatContext>>(TemplateRef);
+
+    private invalidate() {
+        const count = this.myRepeat();
+
+        while (this.vcr.length > count) {
+            this.vcr.remove(this.vcr.length - 1);
+        }
+
+        while (this.vcr.length < count) {
+            
+        }
+
+    }
+
     constructor() {
         effect(() => {
+            this.invalidate();
         })
     }
 
