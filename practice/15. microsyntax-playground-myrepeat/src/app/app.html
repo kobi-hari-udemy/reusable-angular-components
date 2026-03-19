@@ -3,32 +3,80 @@
 
 <section class="settings" aria-label="Repeat settings">
   <div class="setting-card count-setting">
-      <label>Count</label>
-      <button (click)="decrementCount()">-</button>
-      <span>{{ count() }}</span>
-      <button (click)="incrementCount()">+</button>
+    <label>Count</label>
+    <button (click)="decrementCount()">-</button>
+    <span>{{ count() }}</span>
+    <button (click)="incrementCount()">+</button>
   </div>
 
   <div class="setting-card start-setting">
-      <label>Start</label>
-      <button (click)="decrementStart()">-</button>
-      <span>{{ start() }}</span>
-      <button (click)="incrementStart()">+</button>
+    <label>Start</label>
+    <button (click)="decrementStart()">-</button>
+    <span>{{ start() }}</span>
+    <button (click)="incrementStart()">+</button>
   </div>
 
   <div class="setting-card skip-setting">
-      <label>Skip</label>
-      <button (click)="decrementSkip()">-</button>
-      <span>{{ skip() }}</span>
-      <button (click)="incrementSkip()">+</button>
+    <label>Skip</label>
+    <button (click)="decrementSkip()">-</button>
+    <span>{{ skip() }}</span>
+    <button (click)="incrementSkip()">+</button>
   </div>
 </section>
 
 <ul class="results">
   <li
-    *myRepeat="count() as c; start start() skip skip() let v; let i = index; let f = first; let l = last"
-    class="content-presenter" [class.first]="f()" [class.last]="l()"
+    *myRepeat="
+      count() as c;
+      start: start();
+      skip: skip();
+      let v;
+      let i = index;
+      let f = first;
+      let l = last
+    "
+    class="content-presenter"
+    [class.first]="f()"
+    [class.last]="l()"
   >
-    <h3>{{i()}} / {{c()}}: Value = {{v()}}</h3>
+    <h3>{{ i() }} / {{ c() }}: Value = {{ v() }}</h3>
+  </li>
+</ul>
+
+<ul class="results">
+  <li class="content-presenter" [class.first]="true" [class.last]="false">
+    <span class="index">0</span>
+    <span class="seperator">/</span>
+    <span class="count">5</span>
+    <span class="value-label">Value</span>
+    <span class="value">3</span>
+  </li>
+  <li class="content-presenter" [class.first]="false" [class.last]="false">
+    <span class="index">1</span>
+    <span class="seperator">/</span>
+    <span class="count">5</span>
+    <span class="value-label">Value</span>
+    <span class="value">6</span>
+  </li>
+  <li class="content-presenter" [class.first]="false" [class.last]="false">
+    <span class="index">2</span>
+    <span class="seperator">/</span>
+    <span class="count">5</span>
+    <span class="value-label">Value</span>
+    <span class="value">9</span>
+  </li>
+  <li class="content-presenter" [class.first]="false" [class.last]="false">
+    <span class="index">3</span>
+    <span class="seperator">/</span>
+    <span class="count">5</span>
+    <span class="value-label">Value</span>
+    <span class="value">12</span>
+  </li>
+  <li class="content-presenter" [class.first]="false" [class.last]="true">
+    <span class="index">4</span>
+    <span class="seperator">/</span>
+    <span class="count">5</span>
+    <span class="value-label">Value</span>
+    <span class="value">15</span>
   </li>
 </ul>
