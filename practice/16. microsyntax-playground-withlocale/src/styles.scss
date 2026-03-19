@@ -1,0 +1,83 @@
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+body {
+  // Default the application to a light color theme. This can be changed to
+  // `dark` to enable the dark color theme, or to `light dark` to defer to the
+  // user's system settings.
+  color-scheme: light;
+
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}
+:root {
+	--color-page-bg: #f3f7fb;
+	--color-surface: #ffffff;
+	--color-surface-muted: #f7fafc;
+	--color-surface-soft: #eef4f7;
+	--color-border: #d8e0ea;
+	--color-border-strong: #c2d1dc;
+	--color-text: #1f2937;
+	--color-text-muted: #526071;
+	--color-text-subtle: #6b7280;
+	--color-heading: #0f172a;
+	--color-primary: #0f766e;
+	--color-primary-hover: #0b5f59;
+	--color-primary-contrast: #ffffff;
+	--color-tertiary: #2563eb;
+	--color-tertiary-hover: #1d4ed8;
+	--color-secondary: #d97706;
+	--color-secondary-hover: #b45309;
+	--color-success-bg: #ecfdf5;
+	--color-success-border: #99f6e4;
+	--color-success-text: #14532d;
+	--color-panel-border: rgba(255, 255, 255, 0.55);
+	--color-panel-glow: rgba(15, 118, 110, 0.12);
+	--color-panel-glow-secondary: rgba(217, 119, 6, 0.1);
+	--color-card-bg: rgba(255, 255, 255, 0.76);
+	--color-card-border: rgba(15, 23, 42, 0.08);
+	--color-card-highlight: rgba(255, 255, 255, 0.72);
+	--color-start-card-bg: rgba(239, 246, 255, 0.82);
+	--color-start-card-border: rgba(59, 130, 246, 0.18);
+	--color-button-shadow: rgba(15, 118, 110, 0.2);
+	--color-button-shadow-tertiary: rgba(37, 99, 235, 0.22);
+	--color-button-shadow-secondary: rgba(217, 119, 6, 0.2);
+	--color-overlay: rgba(255, 255, 255, 0.1);
+	--color-overlay-strong: rgba(15, 23, 42, 0.14);
+	--color-shadow-soft: rgba(15, 23, 42, 0.08);
+	--color-shadow-card: rgba(148, 163, 184, 0.14);
+	--color-shadow-strong: rgba(15, 118, 110, 0.22);
+	--color-shadow-strong-hover: rgba(15, 118, 110, 0.28);
+	--color-shadow-strong-active: rgba(15, 118, 110, 0.2);
+	--color-shadow-panel: rgba(15, 23, 42, 0.14);
+}
+
+body {
+	margin: 0;
+	background: var(--color-page-bg);
+}
