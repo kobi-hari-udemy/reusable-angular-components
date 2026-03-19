@@ -9,15 +9,7 @@
 
   <aside class="catalog-sidebar">
     @if (selectedProduct(); as product) {
-      <div class="sidebar-product">
-        <img [src]="product.imageUrl" [alt]="product.name" />
-        <h2>{{ product.name }}</h2>
-        <div class="meta">
-          <span>{{ product.category }}</span>
-          <span class="rating">&#9733; {{ product.rating }}</span>
-        </div>
-        <p class="price">{{ product.price | currency }}</p>
-      </div>
+      <app-product-detail [product]="product" />
     } @else {
       <p class="placeholder">Click a product to see details</p>
     }

@@ -38,36 +38,6 @@
     background: var(--color-surface);
     overflow-y: auto;
 
-    .sidebar-product {
-      img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-      }
-
-      h2 {
-        margin: 0 0 0.5rem;
-        font-size: 1.25rem;
-      }
-
-      .meta {
-        display: flex;
-        gap: 1rem;
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--color-text-muted);
-      }
-
-      .price {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-
-      .rating {
-        color: var(--color-rating);
-      }
-    }
   }
 
   .placeholder {

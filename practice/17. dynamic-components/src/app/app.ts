@@ -8,10 +8,11 @@ import { Product } from './models/product.model';
 import { PRODUCTS } from './data/products.data';
 import { VIEW_OPTIONS } from './tokens/view-option.model';
 import { CardsViewComponent } from "./views/cards-view/cards-view";
+import { ProductDetailComponent } from './components/product-detail/product-detail';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, CardsViewComponent],
+  imports: [CommonModule, CardsViewComponent, ProductDetailComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
