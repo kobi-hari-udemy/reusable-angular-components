@@ -75,3 +75,6 @@ In this repository you can find all material for the course
 * Practice 14 - Microsyntax Playground - Build the *myTimer* Structural Directive
   * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/14.%20microsyntax-playground-mytimer)
   * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/14.%20microsyntax-playground-mytimer?title=Microsyntax%20Playground%20-%20Build%20the%20*myTimer*%20Structural%20Directive&file=README.md) 
+* Practice 15 - Microsyntax Playground - Build the *myRepeat* Structural Directive
+  * [Github](https://github.com/kobi-hari-udemy/reusable-angular-components/tree/main/practice/15.%20microsyntax-playground-myrepeat)
+  * [StackBlitz](https://stackblitz.com/fork/github/kobi-hari-udemy/reusable-angular-components/tree/main/practice/15.%20microsyntax-playground-myrepeat?title=Microsyntax%20Playground%20-%20Build%20the%20*myRepeat*%20Structural%20Directive&file=README.md)
