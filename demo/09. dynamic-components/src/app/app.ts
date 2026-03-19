@@ -4,6 +4,8 @@ import {
   inject,
   Injector,
   signal,
+  viewChild,
+  ViewContainerRef,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product } from './models/product.model';
@@ -17,12 +19,14 @@ import { VIEW_ACTIONS, ViewActions } from './tokens/view-actions.token';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, SelectPickerComponent, ProductDetailComponent],
+  imports: [CommonModule, ProductDetailComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
   readonly injector = inject(Injector);
+  readonly pickerVcr = viewChild.required('pickerAnchor', { read: ViewContainerRef });
+
   private readonly viewOptions = inject(VIEW_OPTIONS);
   readonly views = computed<SelectOption[]>(() => this.viewOptions.map(o => ({
     label: o.label, 
