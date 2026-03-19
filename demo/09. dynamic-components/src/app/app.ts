@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  effect,
   inject,
   Injector,
   signal,
@@ -16,6 +17,7 @@ import { SelectOption } from './models/select-option.model';
 import { SelectPickerComponent } from "./pickers/select-picker/select-picker";
 import { GridViewComponent } from './views/grid-view/grid-view';
 import { VIEW_ACTIONS, ViewActions } from './tokens/view-actions.token';
+import { VIEW_PICKER } from './tokens/view-picker.token';
 
 @Component({
   selector: 'app-root',
@@ -25,9 +27,10 @@ import { VIEW_ACTIONS, ViewActions } from './tokens/view-actions.token';
 })
 export class App {
   readonly injector = inject(Injector);
-  readonly pickerVcr = viewChild.required('pickerAnchor', { read: ViewContainerRef });
-
   private readonly viewOptions = inject(VIEW_OPTIONS);
+  private readonly pickerType = inject(VIEW_PICKER);
+
+  readonly pickerVcr = viewChild.required('pickerAnchor', { read: ViewContainerRef });
   readonly views = computed<SelectOption[]>(() => this.viewOptions.map(o => ({
     label: o.label, 
     value: o.value
@@ -61,6 +64,9 @@ export class App {
   readonly selectedProduct = signal<Product | null>(null);
 
   constructor() {
+    effect(() => {
+      this.pickerVcr().createComponent(this.pickerType);
+    })
   }
 }
 
